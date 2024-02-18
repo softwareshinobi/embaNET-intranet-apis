@@ -328,7 +328,7 @@ Create User Story
         <div class="col-md-6">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">General</h3>
+              <h3 class="card-title">User Story Information</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -337,19 +337,21 @@ Create User Story
               </div>
             </div>
             <div class="card-body">
+
               <div class="form-group">
-                <label for="inputName"> Name</label>
+                <label for="client">Intention</label>
+                <input type="text" id="client" class="form-control">
+              </div>    
+
+              <div class="form-group">
+                <label for="inputName">Name</label>
                 <input type="text" id="name" class="form-control">
               </div>
+
               <div class="form-group">
-                <label for="inputDescription"> Description</label>
+                <label for="inputDescription">Description</label>
                 <textarea id="description" class="form-control" rows="4"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="client">Client</label>
-                <input type="text" id="client" class="form-control">
-              </div>
-           
+              </div>      
          
             </div>
             <!-- /.card-body -->
@@ -357,9 +359,11 @@ Create User Story
           <!-- /.card -->
         </div>
         <div class="col-md-6">
+
+
           <div class="card card-secondary">
             <div class="card-header">
-              <h3 class="card-title">888</h3>
+              <h3 class="card-title">Project Information</h3>
 
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -367,12 +371,47 @@ Create User Story
                 </button>
               </div>
             </div>
+
+
+<div class="card-body">  
+
+<div class="form-group">
+
+<label for="selectProject">Assigned Project</label>
+
+<select class="custom-select form-control-border" id="selectProject">
+
+<option>--<option>
+
+<option>--<option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
             <div class="card-body">
               <div class="form-group">
                 <label for="inputEstimatedBudget">Project Intention</label>
 <textarea id="intention" class="form-control" rows="4"></textarea>
               </div>
              </div>
+
+-->
+
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
@@ -425,6 +464,12 @@ center">
 <!-- body / javascript / end -->
 
 <script src="scripting/create.js"></script>
+
+<script src="/plugins/toastr/toastr.min.js"></script>
+
+<script src=" https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js "></script>
+
+<link href=" https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css " rel="stylesheet">
 
 </body>
 

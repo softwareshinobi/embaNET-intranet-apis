@@ -5,6 +5,46 @@ $(document).ready(function () {
 
 });
 
+function loadAvailableProjects() {
+
+	console.debug("enter > loadAvailableProjects");	
+
+	$.ajax({
+
+		type: "GET",
+		
+		url: apiURLBase + "/project/",
+
+		contentType: "text/plain",
+		
+		crossDomain: true,				
+
+		success: function (responseData, status, jqXHR) {
+
+            var trHTML = '';
+
+            for (var i = 0; i < responseData.length; i++) {
+
+                trHTML += '<option>' + responseData[i].name + '</option>';
+
+            }
+
+            $('#selectProject').html(trHTML);   
+
+		},
+
+		error: function (jqXHR, status) {
+
+			console.log("Something Went wrong");
+		
+			console.log(jqXHR);
+
+		}
+
+	});
+
+}
+
 function clearForm(){
 
     $("#name").val("");
@@ -15,17 +55,23 @@ function clearForm(){
 
     $("#intention").val("");
 
+    loadAvailableProjects();
+
 }
 
 function processForm() {
 
 	console.debug("enter > processForm");	
 
+    userStoryName = $("#name").val();
+
 	projectPayload = JSON.stringify({
+
+        project: $("#selectProject").val(), 
 
 		name: $("#name").val(),
 
-		description:  $("#description").val(),
+		description: $("#description").val(),
 
 		client:  $("#client").val(),
 
@@ -33,7 +79,7 @@ function processForm() {
 
 	});
 
-	console.debug("projectPayload / ", projectPayload);
+	console.debug("//projectPayload / ", projectPayload);
 
 	$.ajax({
 
@@ -53,7 +99,7 @@ function processForm() {
 
 			clearForm();
 
-            notifySuccess(projectPayload);
+            notifySuccess(userStoryName);
 
 		},
 
@@ -61,7 +107,7 @@ function processForm() {
 
 			console.log("error during request /",jqXHR);
 
-            notifyFailure(projectPayload);
+            notifyFailure(userStoryName);
 
 		}
 
@@ -69,14 +115,36 @@ function processForm() {
 
 }
 
-function notifySuccess(projectPayload) {
+function notifySuccess(userStoryName) {
 
-    alert("project created!");
+    // alert("project created!");
+
+    console.log("userStoryName / " + userStoryName);
+
+    toastr.success(
+
+        'User Story Created',
+
+        'The user story "'+ userStoryName +'" was created.',
+
+        {timeOut: 5000});
 
 }
 
 function notifyFailure(projectPayload) {
 
-    alert("error creating project.");
+    // alert("error creating project.");
+
+    console.log("userStoryName / " + userStoryName);
+
+    toastr.error(
+
+        'User Story Creation Failure',
+
+        'The user story "'+ userStoryName +'" WAS NOT created.',
+
+        {timeOut: 5000}
+
+    );   
 
 }
