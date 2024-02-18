@@ -6,22 +6,23 @@ services:
 
         image: softwareshinobi/valorant-digital-workspace-web
 
-##        build: 
+        build: 
 
- ##           context: .
+            context: web
 
-   ##         dockerfile: DockerfileDashboard
-
-        ports:
-
-            - 2222:80
-
-    links:
-
-        container_name: links
-
-        image: softwareshinobi/valorant-digital-workspace-links
+            dockerfile: Dockerfile
 
         ports:
 
-            - 4444:80
+            - 8888:80
+
+#    links:
+#
+#       container_name: links
+#
+#        image: softwareshinobi/valorant-digital-workspace-links
+#
+#        ports:
+#
+#            - 4444:80
+#

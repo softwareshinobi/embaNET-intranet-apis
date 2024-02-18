@@ -1,5 +1,9 @@
-cd .. 
+reset
 
-docker-compose -f dev.yaml up -d
+clear
 
-docker-compose -f dev.yaml up --build
+cd ..
+
+docker-compose -f .experiment.yaml down
+
+docker-compose -f .experiment.yaml up --build
