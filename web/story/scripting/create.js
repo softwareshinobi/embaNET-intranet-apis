@@ -5,6 +5,32 @@ $(document).ready(function () {
 
 });
 
+function clearForm(){
+
+    $("#name").val("");
+
+    $("#description").val("");
+
+    $("#intention").val("");
+
+    loadUserStorySelection();
+
+    loadAvailableProjects();
+
+}
+
+function loadUserStorySelection() {
+
+	console.debug("enter > loadUserStorySelection");	
+
+    var trHTML = '';
+
+    trHTML += '<option>Backlog</option><option>To Do</option><option>In Progress</option><option>Done</option>';
+
+    $('#status').html(trHTML);   
+
+}
+
 function loadAvailableProjects() {
 
 	console.debug("enter > loadAvailableProjects");	
@@ -45,20 +71,6 @@ function loadAvailableProjects() {
 
 }
 
-function clearForm(){
-
-    $("#name").val("");
-
-    $("#description").val("");
-
-    $("#client").val("");
-
-    $("#intention").val("");
-
-    loadAvailableProjects();
-
-}
-
 function processForm() {
 
 	console.debug("enter > processForm");	
@@ -73,13 +85,13 @@ function processForm() {
 
 		description: $("#description").val(),
 
-		client:  $("#client").val(),
-
 		intention:  $("#intention").val(),
+
+		status:  $("#status").val(),
 
 	});
 
-	console.debug("//projectPayload / ", projectPayload);
+	console.debug("projectPayload / ", projectPayload);
 
 	$.ajax({
 

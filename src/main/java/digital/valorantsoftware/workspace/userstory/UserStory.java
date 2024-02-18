@@ -20,6 +20,10 @@ public class UserStory {
     private Integer id;
 
     //   @NonNull
+    @Column(name = "project")
+    private String project;
+
+    //   @NonNull
     @Column(name = "name")
     private String name;
 
@@ -30,10 +34,6 @@ public class UserStory {
     //  @NonNull
     @Column(name = "intention")
     private String intention;
-
-    //   @NonNull
-    @Column(name = "project")
-    private String project;
 
 //    //  @NonNull
 //    @Column(name = "category")

@@ -3,11 +3,13 @@ $(document).ready(function () {
 
     visualizeProjectList();
 
-	setInterval(visualizeProjectList,1000 * 8);
+//	setInterval(visualizeProjectList,1000 * 8);
 	
 });
 
 function visualizeProjectList() {
+
+    alert("inside");
 
 	console.debug("enter > visualizeProjectList");	
 
@@ -23,7 +25,11 @@ function visualizeProjectList() {
 
 		success: function (data, status, jqXHR) {
 
-            injectProjectListData(data);           
+			console.log("good");
+
+            injectProjectListData(data);
+
+
 
 		},
 
@@ -41,9 +47,15 @@ function visualizeProjectList() {
 
 function injectProjectListData(responseData) {
 
+	console.debug("enter > injectProjectListData");	
+
+	console.debug("responseData / " + responseData);
+
     var trHTML = '';
 
     for (var i = 0; i < responseData.length; i++) {
+
+        console.debug("responseData / " + responseData[i]);
 
         trHTML += '<tr>';
 
@@ -79,6 +91,8 @@ trHTML += '    </td>	';
 		      
     }
 
-    $('#project-list  > tbody').html(trHTML);   
+    console.log("trHTML / " + trHTML);
+
+    $('#projectList > tbody').html(trHTML);   
 
 }

@@ -30,17 +30,17 @@ public class UserStoryController {
 
     }
 
+    @GetMapping("")
+    public String hello() {
+
+        return "User Story API";
+
+    }
+
     @GetMapping("/health")
     public String health() {
 
         return "OK";
-
-    }
-
-    @GetMapping("")
-    public String hello() {
-
-        return "UserStoryController";
 
     }
 
@@ -62,13 +62,13 @@ public class UserStoryController {
     }
 
     @PutMapping("/")
-    UserStory createUserStory(@RequestBody UserStory project) {
+    UserStory createUserStory(@RequestBody UserStory userStory) {
 
         System.out.println("enter > createUserStory");
 
-        System.out.println("project / " + project);
+        System.out.println("userStory / " + userStory);
 
-        return this.userStoryService.save(project);
+        return this.userStoryService.save(userStory);
 
     }
 
