@@ -13,19 +13,19 @@ function clearForm(){
 
     $("#intention").val("");
 
-    loadUserStorySelection();
+    loadStatusSelection();
 
     loadAvailableProjects();
 
 }
 
-function loadUserStorySelection() {
+function loadStatusSelection() {
 
-	console.debug("enter > loadUserStorySelection");	
+	console.debug("enter > loadStatusSelection");	
 
     var trHTML = '';
 
-    trHTML += '<option>Backlog</option><option>To Do</option><option>In Progress</option><option>Done</option>';
+    trHTML += '<option value="backlog">Backlog</option><option value="todo">To Do</option><option value="inprogress">In Progress</option><option value="done">Done</option>';
 
     $('#status').html(trHTML);   
 
