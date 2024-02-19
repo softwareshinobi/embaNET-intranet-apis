@@ -93,7 +93,7 @@ function visualizeProjectTodoUserStories() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/byStatus/todo",
+		url: apiURLBase + "/story/",
 
 		contentType: "text/plain",
 		

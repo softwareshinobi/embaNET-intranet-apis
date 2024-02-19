@@ -3,13 +3,15 @@ $(document).ready(function () {
 
     visualizeProjectList();
 
-//	setInterval(visualizeProjectList,1000 * 8);
+//    alert("what it do3");
+
+    console.log("322222223");
+
+	setInterval(visualizeProjectList,1000 * 8);
 	
 });
 
 function visualizeProjectList() {
-
-    alert("inside");
 
 	console.debug("enter > visualizeProjectList");	
 
