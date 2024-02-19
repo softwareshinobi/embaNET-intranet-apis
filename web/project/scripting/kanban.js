@@ -4,7 +4,9 @@ $(document).ready(function () {
     visualizeProjectUserStories();
 
 	//setInterval(visualizeProjectUserStories,1000 * 16);
-	
+
+    // alert("22projectID / ", projectID);
+
 });
 
 function visualizeProjectUserStories() {
@@ -41,7 +43,25 @@ function visualizeProjectBacklogUserStories() {
 
             for (var i = 0; i < responseData.length; i++) {
 
-                alert("getProject / ", getProject());
+	console.debug("responseData[i].id > ", responseData[i].id);
+
+	console.debug("responseData[i].name > ", responseData[i].name);	
+
+	console.debug("responseData[i].project > ", responseData[i].project);	
+
+	console.debug("projectID / ", projectID());
+
+	console.debug("projectName / ", projectName());	
+
+            if(responseData[i].project == projectName()){
+
+                console.log("is a match");
+
+            }else{
+
+                console.log("is NOT a match");
+continue;
+            }
 
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
@@ -95,7 +115,7 @@ function visualizeProjectTodoUserStories() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/",
+		url: apiURLBase + "/story/byStatus/todo",
 
 		contentType: "text/plain",
 		

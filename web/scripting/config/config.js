@@ -1,25 +1,52 @@
 apiURLBase="http://softwareshinobi.digital:8888"
 
-function setProject(projectID) {
-    alert("set project");
-    console.log("enter > setProject");
+function setProject(projectID, projectName) {
+
+
+    console.log("e22nter > setProject");
 
     console.log("projectID / ", projectID);
 
-    console.log("apiProject / before / ", Cookies.get('apiProject') );
+    console.log("projectName / ", projectName);
 
-    Cookies.set('apiProject', projectID);
+    console.log("apiProjectID / before / ", Cookies.get('apiProjectID') );
 
-    console.log("apiProject / after / ", Cookies.get('apiProject') );
+    console.log("apiProjectName / before / ", Cookies.get('apiProjectName') );
+
+    Cookies.set('apiProjectID', projectID);
+
+    Cookies.set('apiProjectName', projectName);
+
+    console.log("apiProjectID / after / ", Cookies.get('apiProjectID') );
+
+    console.log("apiProjectName / after / ", Cookies.get('apiProjectName') );
 
 }
 
-function getProject() {
+function projectID() {
 
-    alert("update project");
+    console.log("FETCH / projectID");
 
-    console.log("update project");
+    console.log("apiProjectID / before / ", Cookies.get('apiProjectID') );
 
-//    return Cookies.get('apiProject');
+    currentProjectID=Cookies.get('apiProjectID');
+
+    console.log("currentProjectID / ", currentProjectID);
+
+    return currentProjectID;
+
+}
+
+function projectName() {
+
+    console.log("FETCH / projectName");
+
+    console.log("apiProjectName / ", Cookies.get('apiProjectName') );
+
+    apiProjectName=Cookies.get('apiProjectName');
+
+    console.log("apiProjectName / ", apiProjectName);
+
+    return apiProjectName;
 
 }

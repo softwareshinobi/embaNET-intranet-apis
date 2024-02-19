@@ -1,6 +1,8 @@
-## in progress
+#
 
-correct the sell stop from saying NFS
+## known bugs
+
+the kanban board matching is using the project string name. this will break the kanban board when the project name is updated. use the id. i didn't b/c time.
 
 ## todo
 

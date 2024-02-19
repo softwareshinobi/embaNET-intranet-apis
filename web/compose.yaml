@@ -1,0 +1,17 @@
+services:
+
+    web:
+
+        container_name: web
+
+        image: nginx:latest
+
+        user: "1000"
+
+        volumes:
+        
+            - ${PWD}:/usr/share/nginx/html/           
+         
+        ports:
+
+            - 8888:80
