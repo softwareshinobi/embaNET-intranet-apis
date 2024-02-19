@@ -3,11 +3,11 @@ $(document).ready(function () {
     
     loadCurrentProject();
 
-    visualizeProjectList();
+    loadAllProjects();
 
 	setInterval(loadCurrentProject, 1000 * 4);
 
-	setInterval(visualizeProjectList, 1000 * 8);
+	setInterval(loadAllProjects, 1000 * 8);
 
 });
 
@@ -17,9 +17,9 @@ function loadCurrentProject() {
 
 }
 
-function visualizeProjectList() {
+function loadAllProjects() {
 
-	console.debug("enter > visualizeProjectList");	
+	console.debug("enter > loadAllProjects");	
 
 	$.ajax({
 
@@ -33,7 +33,7 @@ function visualizeProjectList() {
 
 		success: function (data, status, jqXHR) {
 
-            injectProjectListData(data);
+            paintProjectListData(data);
 
 		},
 
@@ -47,17 +47,23 @@ function visualizeProjectList() {
 
 }
 
-function injectProjectListData(responseData) {
+function paintProjectListData(responseData) {
 
     var trHTML = '';
 
     for (var i = 0; i < responseData.length; i++) {
 
-        console.log("responseData[i].name / " + responseData[i].name);
+console.log("responseData[i].name / " + responseData[i].name);
 
-        trHTML += '<button type="button" class="btn btn-lg btn-info" onclick="setProject('+responseData[i].name +')" >' + responseData[i].name + '</button>';
+trHTML += '<button class="btn btn-lg btn-info" onclick="setProject('+responseData[i].id +')" >';
 
-        trHTML += '<br/>';trHTML += '<br/>';
+trHTML += responseData[i].name;
+
+trHTML += '</button>';
+
+trHTML += '<br/>';
+
+trHTML += '<br/>';
 		      
     }
 

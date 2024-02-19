@@ -7,15 +7,7 @@ nav:
 
     - Home: 'index.md'   
     
-    - Installation: 'developer-guides/installation-guide.md'
-
-    - Getting Started: 'developer-guides/getting-started-guide.md'
-    
-    - User Guide: 'developer-guides/user-guide.md'
-        
-    - Architecture: 'developer-guides/software-architecture-guide.md'
-
-    - Project Management: 'project-management/project-management-home.md'       
+    - Valorant Digital Workspace: 'valorantsoftware.digital/valorant-digital-workspace.md'
 
 theme:
 

@@ -1,7 +1,7 @@
 apiURLBase="http://softwareshinobi.digital:8888"
 
 function setProject(projectID) {
-
+    alert("set project");
     console.log("enter > setProject");
 
     console.log("projectID / ", projectID);
@@ -11,5 +11,15 @@ function setProject(projectID) {
     Cookies.set('apiProject', projectID);
 
     console.log("apiProject / after / ", Cookies.get('apiProject') );
+
+}
+
+function getProject() {
+
+    alert("update project");
+
+    console.log("update project");
+
+//    return Cookies.get('apiProject');
 
 }

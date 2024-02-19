@@ -41,6 +41,8 @@ function visualizeProjectBacklogUserStories() {
 
             for (var i = 0; i < responseData.length; i++) {
 
+                alert("getProject / ", getProject());
+
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
                 trHTML += ' <h5 class="card-title">';

@@ -6,7 +6,7 @@ ul.nav.navbar-nav.ml-auto {
     
 }
 
-div p a {
+ddiv pp da {
   background: #FF4742;
   border: 1px solid #FF4742;
   border-radius: 6px;
@@ -31,8 +31,8 @@ div p a {
   vertical-align: middle;
 }
 
-p a:hover,
-p a:active {
+p aa:hover,
+p aa:active {
 
     background-color: initial;
 
@@ -42,7 +42,7 @@ p a:active {
 
 }
 
-p a:active {
+p aa:active {
 
     opacity: .5;
 
