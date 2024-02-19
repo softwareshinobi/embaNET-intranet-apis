@@ -1,9 +1,11 @@
 
 $(document).ready(function () {
     
-	setInterval(loadCurrentProject, 1000 * 1);
+    loadCurrentProject();
 
     visualizeProjectList();
+
+	setInterval(loadCurrentProject, 1000 * 4);
 
 	setInterval(visualizeProjectList, 1000 * 8);
 
@@ -53,9 +55,9 @@ function injectProjectListData(responseData) {
 
         console.log("responseData[i].name / " + responseData[i].name);
 
-        trHTML += '<button type="button" class="btn btn-lg btn-warning" onclick="setProject('+responseData[i].name +')" >' + responseData[i].name + '</button>';
+        trHTML += '<button type="button" class="btn btn-lg btn-info" onclick="setProject('+responseData[i].name +')" >' + responseData[i].name + '</button>';
 
-        trHTML += '<br/>';
+        trHTML += '<br/>';trHTML += '<br/>';
 		      
     }
 

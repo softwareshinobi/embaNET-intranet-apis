@@ -18,4 +18,4 @@ set -x
 
 cd .cascadr
 
-bash cascade.bash
+bash cascadr.bash

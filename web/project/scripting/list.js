@@ -1,19 +1,15 @@
 
 $(document).ready(function () {
 
-    visualizeProjectList();
+    fetchCurrentProjects();
 
-//    alert("what it do3");
-
-    console.log("322222223");
-
-	setInterval(visualizeProjectList,1000 * 8);
+	setInterval(fetchCurrentProjects,1000 * 8);
 	
 });
 
-function visualizeProjectList() {
+function fetchCurrentProjects() {
 
-	console.debug("enter > visualizeProjectList");	
+	console.debug("enter > fetchCurrentProjects");	
 
 	$.ajax({
 
@@ -29,9 +25,7 @@ function visualizeProjectList() {
 
 			console.log("good");
 
-            injectProjectListData(data);
-
-
+            exportCurrentProjects(data);
 
 		},
 
@@ -47,9 +41,9 @@ function visualizeProjectList() {
 
 }
 
-function injectProjectListData(responseData) {
+function exportCurrentProjects(responseData) {
 
-	console.debug("enter > injectProjectListData");	
+	console.debug("enter > exportCurrentProjects");	
 
 	console.debug("responseData / " + responseData);
 
