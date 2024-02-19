@@ -118,6 +118,33 @@ def cascadeSideNavigation():
 	
 	f.close()
 
+def cascadeFlyoutContent():
+
+	templateSectionBegin="<!-- body / flyout / begin -->"
+
+	templateSectionEnd="<!-- body / flyout / end -->"
+
+	with open('templates/body-flyout-content.template') as templateFile:
+
+		substitutionContent = templateFile.read()
+
+	with open(fileToUpdate) as targetSubstitutionFile:
+		s = targetSubstitutionFile.read()
+
+	ddd=s
+
+	ddd=re.sub(templateSectionBegin, templateSectionBegin+nodeOpenName, ddd, flags=re.DOTALL)
+
+	ddd=re.sub(templateSectionEnd, nodeCloseName+templateSectionEnd, ddd, flags=re.DOTALL)
+
+	ddd=re.sub(nodeOpenName+".*"+nodeCloseName,substitutionContent,ddd,flags=re.DOTALL)
+
+	f = open(fileToUpdate, "w")
+	
+	f.write(ddd)
+	
+	f.close()
+
 ###################################################################
 ##
 ## driver
@@ -132,6 +159,7 @@ cascadeFooterContent()
 
 cascadeSideNavigation()
 
+cascadeFlyoutContent()
 ##updateSideBarDesktop()
 
 ##updateSideBarMobile()

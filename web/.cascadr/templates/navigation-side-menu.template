@@ -10,7 +10,7 @@
 
 <span class="brand-text font-weight-light">
 
-Scrum
+Workspace
 
 </span>
 
@@ -91,7 +91,7 @@ Software Shinobi
               <li class="nav-item">
                 <a href="/project/create.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create New</p>
+                  <p>Create Project</p>
                 </a>
               </li>
 
@@ -111,7 +111,7 @@ Software Shinobi
               <li class="nav-item">
                 <a href="/story/list.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All User Story</p>
+                  <p>All User Stories [DNU]</p>
                 </a>
               </li>
               <li class="nav-item">
