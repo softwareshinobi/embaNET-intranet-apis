@@ -53,7 +53,7 @@ function processForm() {
 
 			clearForm();
 
-            notifySuccess(projectPayload);
+            notifySaveSuccess(projectPayload);
 
 		},
 
@@ -61,7 +61,7 @@ function processForm() {
 
 			console.log("error during request /",jqXHR);
 
-            notifyFailure(projectPayload);
+            notifySaveFailure(projectPayload);
 
 		}
 
@@ -69,16 +69,28 @@ function processForm() {
 
 }
 
-function notifySuccess(projectPayload) {
+function notifySaveSuccess(projectName) {
 
-    alert("project created!");
+    toastr.success(
+
+        'Project Created',
+
+        'The project "'+ projectName +'" was created.',
+
+        {timeOut: 5000});
 
 }
 
-function notifyFailure(projectPayload) {
+function notifySaveFailure(projectName) {
 
-    alert("error creating project.");
+    toastr.error(
+
+        'Project Creation Failure',
+
+        'The project "'+ projectName +'" WAS NOT created.',
+
+        {timeOut: 5000}
+
+    );   
 
 }
-
-//////////////////////////////////////////

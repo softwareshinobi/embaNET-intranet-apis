@@ -6,22 +6,33 @@
 
 <title>
 
-Create User Story / Valorant Digital Scrum
+Create User Story / Valorant Digital Workspace
 
 </title>
+
+<!-- head / css / begin --><link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+<li33nk href=" https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/vapor/bootstrap.min.css " rel="stylesheet">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+
+<link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+<li33nk href=" https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/vapor/bootstrap.min.css " rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+<!-- head / css / end -->
+
 </head>
+
 <body class="hold-transition sidebar-mini">
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -175,7 +186,7 @@ Create User Story / Valorant Digital Scrum
 
 <span class="brand-text font-weight-light">
 
-Scrum
+Workspace
 
 </span>
 
@@ -256,7 +267,7 @@ Software Shinobi
               <li class="nav-item">
                 <a href="/project/create.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create New</p>
+                  <p>Create Project</p>
                 </a>
               </li>
 
@@ -276,7 +287,7 @@ Software Shinobi
               <li class="nav-item">
                 <a href="/story/list.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All User Story</p>
+                  <p>All User Stories [DNU]</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -424,10 +435,9 @@ Create User Story
       <div class="row">
         <div class="col-12">
 
-          <a onclick="clearForm()" href="#" class="btn btn-secondary">Clear Form</a>
+          <a onclick="clearForm()" href="#" class="btn btn-lg btn-secondary">Clear Form</a>
 
-          <input onclick="processForm()" type="submit" value="Create User Story" class="btn btn-success float-
-center">
+<input onclick="processForm()" type="submit" value="Create User Story" class="btn btn-lg btn-success float-center">
 
         </div>
       </div>
@@ -437,15 +447,46 @@ center">
   <!-- /.content-wrapper -->
 
 <!-- body / footer / begin --><footer class="main-footer">
+
 <div class="float-right d-none d-sm-block">
-<b>Version</b> 3.2.0
+
 </div>
-<strong>Copyright © 2014-2021 <a href="https://adminlte.io">shinobi strong.io</a>.</strong> All rights reserved.
+
+<strong>
+
+Made with love by
+
+<a href="https://softwareshinobi.digital">
+
+Software Shinobi
+
+</a>
+
+.
+
+</strong>
+
+From my universe to yours.
+
 </footer>
 <!-- body / footer / end -->
 
 <!-- body / flyout / begin -->
+<aside class="control-sidebar control-sidebar-dark">
 
+<h4>Current Project</h4>
+
+<div id="projectBannerArea" class="btn-group-vertical col-12">
+
+<button id="projectBanner" disabled type="button" class="btn btn-lg btn-success">--</button>
+
+</div>
+
+<h4>Select Project</h4>
+
+<div id="projectSwitcherArea" class="btn-group-vertical col-12"></div>
+
+</aside>
 <!-- body / flyout / end -->
 
 </div>
@@ -464,6 +505,10 @@ center">
 <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
 <script src="/dist/js/adminlte.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js "></script>
+
+<script src="scripting/flyout.js"></script>
 <!-- body / javascript / end -->
 
 <script src="scripting/create.js"></script>

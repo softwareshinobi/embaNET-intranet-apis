@@ -111,7 +111,7 @@ function processForm() {
 
 			clearForm();
 
-            notifySuccess(userStoryName);
+            notifySaveSuccess(userStoryName);
 
 		},
 
@@ -119,7 +119,7 @@ function processForm() {
 
 			console.log("error during request /",jqXHR);
 
-            notifyFailure(userStoryName);
+            notifySaveFailure(userStoryName);
 
 		}
 
@@ -127,11 +127,7 @@ function processForm() {
 
 }
 
-function notifySuccess(userStoryName) {
-
-    // alert("project created!");
-
-    console.log("userStoryName / " + userStoryName);
+function notifySaveSuccess(userStoryName) {
 
     toastr.success(
 
@@ -143,11 +139,7 @@ function notifySuccess(userStoryName) {
 
 }
 
-function notifyFailure(projectPayload) {
-
-    // alert("error creating project.");
-
-    console.log("userStoryName / " + userStoryName);
+function notifySaveFailure(projectPayload) {
 
     toastr.error(
 
