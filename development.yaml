@@ -1,8 +1,8 @@
 services:
 
-    callisto:
+    webserver:
 
-        container_name: callisto
+        container_name: webserver
 
         image: softwareshinobi/valorant-digital-workspace-web
 
