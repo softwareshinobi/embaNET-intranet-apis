@@ -1,6 +1,8 @@
 
 $(document).ready(function () {
-    
+
+    console.log("responsddddddddddd");
+
     loadCurrentProject();
 
     loadAllProjects();
@@ -19,7 +21,7 @@ function loadCurrentProject() {
 
 function loadAllProjects() {
 
-	// console.debug("enter > loadAllProjects");	
+console.debug("enter > loadAllProjects");	
 
 	$.ajax({
 
@@ -53,7 +55,7 @@ function paintProjectListData(responseData) {
 
     for (var i = 0; i < responseData.length; i++) {
 
-        // console.log("responseData[i].name / " + responseData[i].name);
+        console.log("responseData[i].name / " + responseData[i].name);
 
         trHTML += '<button class="btn btn-lg btn-info" onclick="setProject('+responseData[i].id + ",\'" +responseData[i].name +'\')" >';
 

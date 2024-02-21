@@ -3,9 +3,7 @@ $(document).ready(function () {
 
     visualizeProjectUserStories();
 
-	//setInterval(visualizeProjectUserStories,1000 * 16);
-
-    // alert("22projectID / ", projectID);
+	setInterval(visualizeProjectUserStories, 1000 * 16);
 
 });
 

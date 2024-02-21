@@ -1,9 +1,8 @@
-apiURLBase="http://softwareshinobi.digital:8888"
+apiURLBase="https://apis.valorantsoftware.digital/"
 
 function setProject(projectID, projectName) {
 
-
-    console.log("e22nter > setProject");
+    console.log("enter > setProject");
 
     console.log("projectID / ", projectID);
 
