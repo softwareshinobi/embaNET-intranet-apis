@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
 	clearForm();
@@ -45,17 +44,19 @@ function loadAvailableProjects() {
 		
 		crossDomain: true,				
 
-		success: function (responseData, status, jqXHR) {
+		success: function (projects, status, jqXHR) {
 
-            var trHTML = '';
+        	console.debug("projects / " + projects);
 
-            for (var i = 0; i < responseData.length; i++) {
+            var html = '';
 
-                trHTML += '<option>' + responseData[i].name + '</option>';
+            for (var i = 0; i < projects.length; i++) {
+
+                html += '<option value="' + projects[i].name + '">' + projects[i].name + '</option>';
 
             }
 
-            $('#selectProject').html(trHTML);   
+            $('#selectProject').html(html);   
 
 		},
 
@@ -75,17 +76,15 @@ function processForm() {
 
 	console.debug("enter > processForm");	
 
-    userStoryName = $("#name").val();
+    userStoryName = $("#intention").val();
 
 	projectPayload = JSON.stringify({
 
         project: $("#selectProject").val(), 
 
-		name: $("#name").val(),
+		intention:  $("#intention").val(),
 
 		description: $("#description").val(),
-
-		intention:  $("#intention").val(),
 
 		status:  $("#status").val(),
 
@@ -131,9 +130,9 @@ function notifySaveSuccess(userStoryName) {
 
     toastr.success(
 
-        'User Story Created',
+        'Story Created',
 
-        'The user story "'+ userStoryName +'" was created.',
+        'The story "'+ userStoryName +'" was created.',
 
         {timeOut: 5000});
 
@@ -143,9 +142,9 @@ function notifySaveFailure(projectPayload) {
 
     toastr.error(
 
-        'User Story Creation Failure',
+        'Story Creation Failure',
 
-        'The user story "'+ userStoryName +'" WAS NOT created.',
+        'The story "'+ userStoryName +'" WAS NOT created.',
 
         {timeOut: 5000}
 

@@ -1,13 +1,15 @@
 
 $(document).ready(function () {
 
-	setInterval(visualizeProjectList,1000);
+    paintUserContent();
+
+	setInterval(paintUserContent, 1000 * 8);
 	
 });
 
-function visualizeProjectList() {
+function paintUserContent() {
 
-	console.debug("enter > visualizeProjectList");	
+	console.debug("enter > paintUserContent");	
 
 	$.ajax({
 
@@ -21,7 +23,7 @@ function visualizeProjectList() {
 
 		success: function (data, status, jqXHR) {
 
-            injectProjectListData(data);           
+            injectStoryContentIntoTable(data);           
 
 		},
 
@@ -37,36 +39,44 @@ function visualizeProjectList() {
 
 }
 
-function injectProjectListData(responseData) {
+function injectStoryContentIntoTable(story) {
 
-    var trHTML = '';
+    var html = '';
 
-    for (var i = 0; i < responseData.length; i++) {
+    for (var index = 0; index < story.length; index++) {
 
-        trHTML += '<tr>';
+        html += '<tr>';
 
-//        trHTML += '<td>' + responseData[i].id + '</td>';
+//        html += '<td>' + story[index].id + '</td>';
 
-        trHTML += '<td class="col-1">' + '<img alt="Software Shinobi" class="table-avatar" src="../dist/img/avatar.png">' + '</td>';
+        html += '<td class="col-1">' + '<img alt="Software Shinobi" class="table-avatar" src="../dist/img/avatar.png">' + '</td>';
 
-        trHTML += '<td>' + responseData[i].name + '</td>';
+        html += '<td>' + story[index].name + '</td>';
 
-        trHTML += '<td>' + responseData[i].description + '</td>';
+        html += '<td>' + story[index].description + '</td>';
 
-        trHTML += '<td>' + responseData[i].intention + '</td>';
+        html += '<td>' + story[index].intention + '</td>';
 
-        trHTML += '<td>' + responseData[i].status + '</td>';
+        html += '<td>' + story[index].status + '</td>';
 
-trHTML += '    <td class="project-actions text-left">';
-trHTML += '    <a onclick="setProject(' + responseData[i].id  + ')" class="btn btn-primary btn-sm" href="kanban.html">';
-trHTML += '    <i class="fas fa-folder">';
-trHTML += '    </i>';
-trHTML += '    View';
-trHTML += '    </a>';
-trHTML += '    </td>	';
-		      
-    }
+html += '    <td class="project-actions text-left">';
 
-    $('#project-list  > tbody').html(trHTML);   
+html += '    <a onclick="setViewStoryID(' + story[index].id  + ')" class="btn btn-primary btn-sm" href="view.html">';
+html += '    <i class="fas fa-folder">';
+html += '    </i>';
+html += '    View';
+html += '    </a>';
+
+html += '    <a onclick="setEditStoryID(' + story[index].id  + ')" class="btn btn-danger btn-sm" href="edit.html">';
+html += '    <i class="fas fa-folder">';
+html += '    </i>';
+html += '    Edit';
+html += '    </a>';
+
+html += '    </td>	';
+
+}
+
+    $('#project-list  > tbody').html(html);   
 
 }
