@@ -1,4 +1,4 @@
-apiURLBase="https://apis.valorantsoftware.digital/"
+apiURLBase="https://apis.valorantsoftware.digital"
 
 function setProject(projectID, projectName) {
 
