@@ -41,25 +41,27 @@ function visualizeProjectBacklogUserStories() {
 
             for (var i = 0; i < responseData.length; i++) {
 
-	console.debug("responseData[i].id > ", responseData[i].id);
+                console.debug("responseData[i].id > ", responseData[i].id);
 
-	console.debug("responseData[i].name > ", responseData[i].name);	
+                console.debug("responseData[i].name > ", responseData[i].name);	
 
-	console.debug("responseData[i].project > ", responseData[i].project);	
+                console.debug("responseData[i].project > ", responseData[i].project);	
 
-	console.debug("projectID / ", projectID());
+                console.debug("projectID / ", projectID());
 
-	console.debug("projectName / ", projectName());	
+                console.debug("projectName / ", projectName());	
 
-            if(responseData[i].project == projectName()){
+                if(responseData[i].project == projectName()){
 
-                console.log("is a match");
+                    console.log("is a match");
 
-            }else{
+                } else {
 
                 console.log("is NOT a match");
-continue;
-            }
+
+                continue;
+
+                }
 
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
@@ -95,9 +97,7 @@ continue;
 
 		error: function (jqXHR, status) {
 
-			console.log("Something Went wrong");
-		
-			console.log(jqXHR);
+			console.log("Something Went wrong" ,jqXHR);
 
 		}
 
@@ -124,6 +124,28 @@ function visualizeProjectTodoUserStories() {
             var trHTML = '';
 
             for (var i = 0; i < responseData.length; i++) {
+
+                console.debug("responseData[i].id > ", responseData[i].id);
+
+                console.debug("responseData[i].name > ", responseData[i].name);	
+
+                console.debug("responseData[i].project > ", responseData[i].project);	
+
+                console.debug("projectID / ", projectID());
+
+                console.debug("projectName / ", projectName());	
+
+                if(responseData[i].project == projectName()){
+
+                    console.log("is a match");
+
+                } else {
+
+                console.log("is NOT a match");
+
+                continue;
+
+                }
 
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
@@ -189,6 +211,28 @@ function visualizeProjectInprogressUserStories() {
 
             for (var i = 0; i < responseData.length; i++) {
 
+                console.debug("responseData[i].id > ", responseData[i].id);
+
+                console.debug("responseData[i].name > ", responseData[i].name);	
+
+                console.debug("responseData[i].project > ", responseData[i].project);	
+
+                console.debug("projectID / ", projectID());
+
+                console.debug("projectName / ", projectName());	
+
+                if(responseData[i].project == projectName()){
+
+                    console.log("is a match");
+
+                } else {
+
+                console.log("is NOT a match");
+
+                continue;
+
+                }
+
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
                 trHTML += ' <h5 class="card-title">';
@@ -252,6 +296,28 @@ function visualizeProjectDoneUserStories() {
             var trHTML = '';
 
             for (var i = 0; i < responseData.length; i++) {
+
+                console.debug("responseData[i].id > ", responseData[i].id);
+
+                console.debug("responseData[i].name > ", responseData[i].name);	
+
+                console.debug("responseData[i].project > ", responseData[i].project);	
+
+                console.debug("projectID / ", projectID());
+
+                console.debug("projectName / ", projectName());	
+
+                if(responseData[i].project == projectName()){
+
+                    console.log("is a match");
+
+                } else {
+
+                console.log("is NOT a match");
+
+                continue;
+
+                }
 
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
