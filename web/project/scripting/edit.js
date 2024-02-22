@@ -1,37 +1,69 @@
 
 $(document).ready(function () {
+    
+    alert("edit.js");
 
-   // visualizeProjectList();
+	clearForm();
 
-	//setInterval(visualizeProjectList,1000 * 8);
-	
 });
 
-function visualizeProjectList() {
+function clearForm(){
 
-	console.debug("enter > visualizeProjectList");	
+    $("#name").val("");
+
+    $("#description").val("");
+
+    $("#client").val("");
+
+    $("#intention").val("");
+
+}
+
+function processForm() {
+
+	console.debug("enter > processForm");	
+
+	projectPayload = JSON.stringify({
+
+		name: $("#name").val(),
+
+		description:  $("#description").val(),
+
+		client:  $("#client").val(),
+
+		intention:  $("#intention").val(),
+
+	});
+
+	console.debug("projectPayload / ", projectPayload);
 
 	$.ajax({
 
-		type: "GET",
-		
+		type: "PUT",
+
 		url: apiURLBase + "/project/",
 
-		contentType: "text/plain",
-		
-		crossDomain: true,				
+		data: projectPayload,
+
+		contentType: "application/json; charset=utf-8",
+
+		crossDomain: true,
+
+		dataType: "text",
 
 		success: function (data, status, jqXHR) {
 
-            injectProjectListData(data);           
+			clearForm();
+
+            notifySaveSuccess(projectPayload);
 
 		},
 
 		error: function (jqXHR, status) {
 
-			console.log("Something Went wrong");
-		
-			console.log(jqXHR);
+			console.log("error during request /",jqXHR);
+
+            notifySaveFailure(projectPayload);
 
 		}
 
@@ -39,46 +71,28 @@ function visualizeProjectList() {
 
 }
 
-function injectProjectListData(responseData) {
+function notifySaveSuccess(projectName) {
 
-    var trHTML = '';
+    toastr.success(
 
-    for (var i = 0; i < responseData.length; i++) {
+        'Project Created',
 
-        trHTML += '<tr>';
+        'The project "'+ projectName +'" was created.',
 
-//        trHTML += '<td>' + responseData[i].id + '</td>';
+        {timeOut: 5000});
 
-        trHTML += '<td class="col-1">' + '<img alt="Software Shinobi" class="table-avatar" src="../dist/img/avatar.png">' + '</td>';
+}
 
-        trHTML += '<td>' + responseData[i].name + '</td>';
+function notifySaveFailure(projectName) {
 
-        trHTML += '<td>' + responseData[i].description + '</td>';
+    toastr.error(
 
-        trHTML += '<td>' + responseData[i].intention + '</td>';
+        'Project Creation Failure',
 
-trHTML += ' <td class="project_progress">';
+        'The project "'+ projectName +'" WAS NOT created.',
 
-trHTML += ' <div class="progress progress-sm">';
+        {timeOut: 5000}
 
-trHTML += ' <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">';
-trHTML += '    </div>';
-trHTML += '    </div>';
-trHTML += '    <small>';
-trHTML += '    60% Complete';
-trHTML += '    </small>';
-trHTML += '    </td>';
-
-trHTML += '    <td class="project-actions text-left">';
-trHTML += '    <a onclick="setProject(' + responseData[i].id  + ')" class="btn btn-primary btn-sm" href="kanban.html">';
-trHTML += '    <i class="fas fa-folder">';
-trHTML += '    </i>';
-trHTML += '    View';
-trHTML += '    </a>';
-trHTML += '    </td>	';
-		      
-    }
-
-    $('#project-list  > tbody').html(trHTML);   
+    );   
 
 }

@@ -1,4 +1,4 @@
-package digital.valorantsoftware.workspace.userstory;
+package digital.valorantsoftware.workspace.story;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

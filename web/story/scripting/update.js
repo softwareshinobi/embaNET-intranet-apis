@@ -73,9 +73,9 @@ function loadForm(story){
 
 }
 
-function processEditForm() {
+function processUpdateForm() {
 
-	console.debug("enter > processEditForm");	
+	console.debug("enter > processUpdateForm");	
 
     userStoryName = $("#intention").val();
 
@@ -111,17 +111,81 @@ function processEditForm() {
 
 		success: function (data, status, jqXHR) {
 
-			clearForm();
-
-            notifySaveSuccess(userStoryName);
+            notifyUpdateSuccess(userStoryName);
 
 		},
 
 		error: function (jqXHR, status) {
 
-			console.log("error during request /",jqXHR);
+			console.log("error during request /", jqXHR);
 
-            notifySaveFailure(userStoryName);
+            notifyUpdateFailure(userStoryName);
+
+		}
+
+	});
+
+}
+
+function notifyUpdateSuccess(userStoryName) {
+
+    toastr.success(
+
+        'Story Updated',
+
+        'The story "'+ userStoryName +'" was updated.',
+
+        {timeOut: 5000});
+
+}
+
+function notifyUpdateFailure(projectPayload) {
+
+    toastr.error(
+
+        'Story Update Failure',
+
+        'The story "'+ userStoryName +'" WAS NOT updated.',
+
+        {timeOut: 5000}
+
+    );   
+
+}
+
+function deleteStory() {
+
+	console.debug("enter > deleteStory");	
+
+   	console.debug("project id / ", projectID());
+
+	$.ajax({
+
+		type: "DELETE",
+
+		url: apiURLBase + "/story/" + projectID(),
+
+		contentType: "application/json; charset=utf-8",
+
+		crossDomain: true,
+
+		dataType: "text",
+
+		success: function (data, status, jqXHR) {
+
+            alert("deleted!");
+
+//            notifyUpdateSuccess(userStoryName);
+
+		},
+
+		error: function (jqXHR, status) {
+
+            alert("not deleted :(");
+
+			console.log("error during request /", jqXHR);
+
+            notifyUpdateFailure(userStoryName);
 
 		}
 

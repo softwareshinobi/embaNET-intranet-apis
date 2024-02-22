@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     fetchCurrentProjects();
 
-	setInterval(fetchCurrentProjects,1000 * 8);
+	//setInterval(fetchCurrentProjects, 1000 * 8);
 	
 });
 
@@ -23,17 +23,13 @@ function fetchCurrentProjects() {
 
 		success: function (data, status, jqXHR) {
 
-			console.log("good");
-
             exportCurrentProjects(data);
 
 		},
 
-		error: function (jqXHR, status) {
+		error: function (exception, status) {
 
-			console.log("Something Went wrong");
-		
-			console.log(jqXHR);
+			console.log("error during projects pull / ", exception);
 
 		}
 
@@ -43,9 +39,9 @@ function fetchCurrentProjects() {
 
 function exportCurrentProjects(responseData) {
 
-	console.debug("enter > exportCurrentProjects");	
+    console.debug("enter > exportCurrentProjects");	
 
-	console.debug("responseData / " + responseData);
+    console.debug("responseData / " + responseData);
 
     var trHTML = '';
 
@@ -55,9 +51,9 @@ function exportCurrentProjects(responseData) {
 
         trHTML += '<tr>';
 
-//        trHTML += '<td>' + responseData[i].id + '</td>';
+        trHTML += '<td class="col-1">' + '<img style="visibility: hidden;" alt="Software Shinobi" class="table-avatar" src="../dist/img/avatar.png">' + '</td>';
 
-        trHTML += '<td class="col-1">' + '<img alt="Software Shinobi" class="table-avatar" src="../dist/img/avatar.png">' + '</td>';
+        trHTML += '<td>' + responseData[i].id + '</td>';
 
         trHTML += '<td>' + responseData[i].name + '</td>';
 
@@ -65,30 +61,20 @@ function exportCurrentProjects(responseData) {
 
         trHTML += '<td>' + responseData[i].intention + '</td>';
 
-trHTML += ' <td class="project_progress">';
+        trHTML += '    <td class="project-actions text-left">';
 
-trHTML += ' <div class="progress progress-sm">';
+trHTML += '<a onclick="setProject('+responseData[i].id + ',\'' + responseData[i].name +'\')" class="1qq1 btn btn-primary btn-sm" href="kanban.html">';
 
-trHTML += ' <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">';
-trHTML += '    </div>';
-trHTML += '    </div>';
-trHTML += '    <small>';
-trHTML += '    60% Complete';
-trHTML += '    </small>';
-trHTML += '    </td>';
+        trHTML += '    <i class="fas fa-folder">';
+        trHTML += '    </i>';
+        trHTML += '    kanban';
+        trHTML += '    </a>';
+        trHTML += '    </td>	';
 
-trHTML += '    <td class="project-actions text-left">';
-trHTML += '    <a onclick="setProject(' + responseData[i].id  + ')" class="btn btn-primary btn-sm" href="kanban.html">';
-trHTML += '    <i class="fas fa-folder">';
-trHTML += '    </i>';
-trHTML += '    View';
-trHTML += '    </a>';
-trHTML += '    </td>	';
-		      
     }
 
     console.log("trHTML / " + trHTML);
 
     $('#projectList > tbody').html(trHTML);   
 
-}
+    }

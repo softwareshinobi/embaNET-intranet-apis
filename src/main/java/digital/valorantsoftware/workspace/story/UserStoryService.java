@@ -1,4 +1,4 @@
-package digital.valorantsoftware.workspace.userstory;
+package digital.valorantsoftware.workspace.story;
 
 import jakarta.transaction.Transactional;
 import java.sql.SQLException;

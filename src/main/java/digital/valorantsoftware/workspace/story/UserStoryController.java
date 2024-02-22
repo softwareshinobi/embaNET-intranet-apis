@@ -1,4 +1,4 @@
-package digital.valorantsoftware.workspace.userstory;
+package digital.valorantsoftware.workspace.story;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
