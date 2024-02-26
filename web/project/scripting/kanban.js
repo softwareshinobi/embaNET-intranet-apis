@@ -43,7 +43,7 @@ function visualizeProjectBacklogUserStories() {
 
                 console.debug("responseData[i].id > ", responseData[i].id);
 
-                console.debug("responseData[i].name > ", responseData[i].name);	
+                console.debug("responseData[i].intention > ", responseData[i].intention);	
 
                 console.debug("responseData[i].project > ", responseData[i].project);	
 
@@ -66,14 +66,14 @@ function visualizeProjectBacklogUserStories() {
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
                 trHTML += ' <h5 class="card-title">';
-                trHTML += responseData[i].name;
+                trHTML += responseData[i].intention;
                 trHTML += ' </h5>';
                 trHTML += ' <div class="card-tools">';
 
-                trHTML += '<a href="#" class="btn btn-tool btn-link">#';
+                trHTML += '<a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool btn-link">#';
                 trHTML += responseData[i].id;
                 trHTML += '</a>';
-                trHTML += ' <a href="#" class="btn btn-tool">';
+                trHTML += ' <a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool">';
                 trHTML += ' <i class="fas fa-pen"></i>';
                 trHTML += ' </a>';
                 trHTML += ' </div>';
@@ -127,7 +127,7 @@ function visualizeProjectTodoUserStories() {
 
                 console.debug("responseData[i].id > ", responseData[i].id);
 
-                console.debug("responseData[i].name > ", responseData[i].name);	
+                console.debug("responseData[i].intention > ", responseData[i].intention);	
 
                 console.debug("responseData[i].project > ", responseData[i].project);	
 
@@ -150,14 +150,14 @@ function visualizeProjectTodoUserStories() {
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
                 trHTML += ' <h5 class="card-title">';
-                trHTML += responseData[i].name;
+                trHTML += responseData[i].intention;
                 trHTML += ' </h5>';
                 trHTML += ' <div class="card-tools">';
 
-                trHTML += '<a href="#" class="btn btn-tool btn-link">#';
+                trHTML += '<a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool btn-link">#';
                 trHTML += responseData[i].id;
                 trHTML += '</a>';
-                trHTML += ' <a href="#" class="btn btn-tool">';
+                trHTML += ' <a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool">';
                 trHTML += ' <i class="fas fa-pen"></i>';
                 trHTML += ' </a>';
                 trHTML += ' </div>';
@@ -213,7 +213,7 @@ function visualizeProjectInprogressUserStories() {
 
                 console.debug("responseData[i].id > ", responseData[i].id);
 
-                console.debug("responseData[i].name > ", responseData[i].name);	
+                console.debug("responseData[i].intention > ", responseData[i].intention);	
 
                 console.debug("responseData[i].project > ", responseData[i].project);	
 
@@ -236,14 +236,14 @@ function visualizeProjectInprogressUserStories() {
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
                 trHTML += ' <h5 class="card-title">';
-                trHTML += responseData[i].name;
+                trHTML += responseData[i].intention;
                 trHTML += ' </h5>';
                 trHTML += ' <div class="card-tools">';
 
-                trHTML += '<a href="#" class="btn btn-tool btn-link">#';
+                trHTML += '<a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool btn-link">#';
                 trHTML += responseData[i].id;
                 trHTML += '</a>';
-                trHTML += ' <a href="#" class="btn btn-tool">';
+                trHTML += ' <a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool">';
                 trHTML += ' <i class="fas fa-pen"></i>';
                 trHTML += ' </a>';
                 trHTML += ' </div>';
@@ -299,7 +299,7 @@ function visualizeProjectDoneUserStories() {
 
                 console.debug("responseData[i].id > ", responseData[i].id);
 
-                console.debug("responseData[i].name > ", responseData[i].name);	
+                console.debug("responseData[i].intention > ", responseData[i].intention);	
 
                 console.debug("responseData[i].project > ", responseData[i].project);	
 
@@ -322,14 +322,14 @@ function visualizeProjectDoneUserStories() {
                 trHTML += '<div class="card card-light card-outline">';
                 trHTML += ' <div class="card-header">';
                 trHTML += ' <h5 class="card-title">';
-                trHTML += responseData[i].name;
+                trHTML += responseData[i].intention;
                 trHTML += ' </h5>';
                 trHTML += ' <div class="card-tools">';
 
-                trHTML += '<a href="#" class="btn btn-tool btn-link">#';
+                trHTML += '<a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool btn-link">#';
                 trHTML += responseData[i].id;
                 trHTML += '</a>';
-                trHTML += ' <a href="#" class="btn btn-tool">';
+                trHTML += ' <a onclick="setEditStoryID(' + responseData[i].id  + ')" href="/story/update.html" class="btn btn-tool">';
                 trHTML += ' <i class="fas fa-pen"></i>';
                 trHTML += ' </a>';
                 trHTML += ' </div>';
@@ -340,6 +340,7 @@ function visualizeProjectDoneUserStories() {
                 trHTML += responseData[i].description;
                 trHTML += ' </p>';
                 trHTML += ' </div>';
+
 
                 trHTML += ' </div>';
 

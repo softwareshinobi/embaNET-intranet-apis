@@ -249,27 +249,41 @@ Software Shinobi
             <a class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Projects
-                <i class="right fas fa-angle-left"></i>
+
+Project Management
+
+<i class="right fas fa-angle-left"></i>
               </p>
             </a>
+
+
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/project/list.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
+
+        <li class="nav-item">
                 <a href="/project/kanban.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kanban Board</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="/project/list.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project List</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a href="/project/create.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Project</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/story/create.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Story</p>
                 </a>
               </li>
 
@@ -281,7 +295,7 @@ Software Shinobi
             <a class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                User Story
+                DEV
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -292,13 +306,8 @@ Software Shinobi
                   <p>All User Stories [DNU]</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/story/create.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Create User Story</p>
-                </a>
-              </li>
 
+      
             </ul>
           </li>
       
@@ -320,7 +329,7 @@ Software Shinobi
 
 <h1>
 
-Create User Story
+User Story Detail
 
 </h1>
 
@@ -437,11 +446,15 @@ Create User Story
 
 <div class="row">
 
-<button type="button" class="btn btn-lg btn-warning col-2" onclick="clearForm()">Clear Form</button>
+<button type="button" class="btn btn-lg btn-warning col-2" onclick="clearForm()">
+
+Reset Story
+
+</button>
 
 <button type="button" class="btn btn-lg btn-success float-center col-8" onclick="processUpdateForm()">
 
-Update User Story
+Update Story
 
 </button>
 
