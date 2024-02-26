@@ -1,6 +1,14 @@
 
 $(document).ready(function () {
 
+            toastr.info(
+
+                'Story Board',
+
+                'You are now viewing the story board for project: "'+ projectName()) + '".',
+
+                {timeOut: 8000});
+
     visualizeProjectUserStories();
 
 	setInterval(visualizeProjectUserStories, 1000 * 16);
