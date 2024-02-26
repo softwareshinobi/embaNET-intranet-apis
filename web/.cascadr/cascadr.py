@@ -93,9 +93,9 @@ def cascadeFooterContent():
 
 def cascadeTopNavigation():
 
-	templateSectionBegin="<!-- Left navbar links -->"
+	templateSectionBegin="<!-- Navbar -->"
 
-	templateSectionEnd="<!-- Right navbar links -->"
+	templateSectionEnd=" <!-- /.navbar -->"
 
 	with open('templates/navigation-top-menu.template') as templateFile:
 
