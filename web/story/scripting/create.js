@@ -130,9 +130,9 @@ function notifySaveSuccess(userStoryName) {
 
     toastr.success(
 
-        'Story Created',
-
         'The story "'+ userStoryName +'" was created.',
+
+        'Story Created',
 
         {timeOut: 5000});
 
@@ -142,9 +142,9 @@ function notifySaveFailure(projectPayload) {
 
     toastr.error(
 
-        'Story Creation Failure',
-
         'The story "'+ userStoryName +'" WAS NOT created.',
+
+        'Story Creation Failure',
 
         {timeOut: 5000}
 

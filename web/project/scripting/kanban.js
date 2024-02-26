@@ -3,9 +3,9 @@ $(document).ready(function () {
 
             toastr.info(
 
-                'Story Board',
+                'Project Story Board',
 
-                'You are now viewing the story board for project: "'+ projectName()) + '".',
+                'viewing story board for: "'+ projectName() + '".',
 
                 {timeOut: 8000});
 
@@ -18,6 +18,8 @@ $(document).ready(function () {
 function visualizeProjectUserStories() {
 
 	console.debug("enter > visualizeProjectUserStories");	
+
+    $('#pageTitleBanner').html(projectName() );
 
     visualizeProjectBacklogUserStories();
 

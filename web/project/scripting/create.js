@@ -51,9 +51,9 @@ function processForm() {
 
 		success: function (data, status, jqXHR) {
 
-			clearForm();
+            notifySaveSuccess($("#name").val());
 
-            notifySaveSuccess(projectPayload);
+            clearForm();
 
 		},
 
@@ -61,7 +61,7 @@ function processForm() {
 
 			console.log("error during request /",jqXHR);
 
-            notifySaveFailure(projectPayload);
+            notifySaveFailure($("#name").val());
 
 		}
 
@@ -73,9 +73,9 @@ function notifySaveSuccess(projectName) {
 
     toastr.success(
 
-        'Project Created',
-
         'The project "'+ projectName +'" was created.',
+
+        'Project Created',
 
         {timeOut: 5000});
 
@@ -85,9 +85,9 @@ function notifySaveFailure(projectName) {
 
     toastr.error(
 
-        'Project Creation Failure',
-
         'The project "'+ projectName +'" WAS NOT created.',
+
+        'Project Creation Failure',
 
         {timeOut: 5000}
 

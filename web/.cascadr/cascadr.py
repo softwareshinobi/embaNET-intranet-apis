@@ -91,6 +91,33 @@ def cascadeFooterContent():
 	
 	f.close()
 
+def cascadeTopNavigation():
+
+	templateSectionBegin="<!-- Left navbar links -->"
+
+	templateSectionEnd="<!-- Right navbar links -->"
+
+	with open('templates/navigation-top-menu.template') as templateFile:
+
+		substitutionContent = templateFile.read()
+
+	with open(fileToUpdate) as targetSubstitutionFile:
+		s = targetSubstitutionFile.read()
+
+	ddd=s
+
+	ddd=re.sub(templateSectionBegin, templateSectionBegin+nodeOpenName, ddd, flags=re.DOTALL)
+
+	ddd=re.sub(templateSectionEnd, nodeCloseName+templateSectionEnd, ddd, flags=re.DOTALL)
+
+	ddd=re.sub(nodeOpenName+".*"+nodeCloseName,substitutionContent,ddd,flags=re.DOTALL)
+
+	f = open(fileToUpdate, "w")
+	
+	f.write(ddd)
+	
+	f.close()
+
 def cascadeSideNavigation():
 
 	templateSectionBegin="<!-- navigation / side / begin -->"
@@ -156,6 +183,8 @@ cascadeStylingIncludes()
 cascadeJavascriptIncludes()
 
 cascadeFooterContent()
+
+cascadeTopNavigation()
 
 cascadeSideNavigation()
 

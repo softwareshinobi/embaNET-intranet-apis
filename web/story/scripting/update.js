@@ -1,10 +1,17 @@
 $(document).ready(function () {
 
+    resetForm();
+
+});
+
+function resetForm() {
+
 	clearForm();
 
     loadStoryDetails();
 
-});
+}
+
 
 function loadStoryDetails() {
 

@@ -10,18 +10,31 @@ Create Project / Valorant Digital Scrum
 
 </title>
 
+<!-- head / css / begin --><link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+<meta http-equiv="Pragma" content="no-cache" />
+
+<meta http-equiv="Expires" content="0" />
+
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+<link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+<!-- head / css / end -->
+
 </head>
+
 <body class="hold-transition sidebar-mini">
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -387,16 +400,20 @@ Create Project
           <!-- /.card -->
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
 
-          <a onclick="clearForm()" href="#" class="btn btn-secondary">Clear Form</a>
 
-          <input onclick="processForm()" type="submit" value="Create New Project" class="btn btn-success float-
-center">
+<div class="row">
 
-        </div>
-      </div>
+<button type="button" class="btn btn-lg btn-warning col-2" onclick="clearForm()">Reset Form</button>
+
+<button type="button" class="btn btn-lg btn-success float-center col-10" onclick="processForm()">
+
+Create Project
+
+</button>
+
+</div>
+
     </section>
     <!-- /.content -->
   </div>
