@@ -1,3 +1,5 @@
+# fixes
+
 refresh page on project change from flyout menu
 
 the default project isn't setting if there is a project available
@@ -19,4 +21,21 @@ on new project create, display project list
 integrate full calendar
 
 integrate project wide targets
+
+
+## known bugs
+
+the kanban board matching is using the project string name. this will break the kanban board when the project name is updated. use the id. i didn't b/c time.
+
+## todo
+
+add logback.xml with shorter terminal output
+
+add in a server side 404 page
+
+add in a server side 500 page
+
+add a mapping for /error
+
+get a diagram server running using a reverse proxy situation over docker compose for (diagram. & draw.)
 
