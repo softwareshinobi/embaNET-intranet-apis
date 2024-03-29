@@ -1,12 +1,15 @@
-apiURLBase="https://apis.valorantsoftware.digital"
+
+//apiURLBase="https://apis.valorantsoftware.digital"
+
+apiURLBase="http://localhost:8888"
 
 function setProject(projectID, projectName) {
 
- console.log("enter > setProject");
+    console.log("enter > setProject");
 
- console.log("projectID / ", projectID);
+    console.log("projectID / ", projectID);
 
- console.log("projectName / ", projectName);
+    console.log("projectName / ", projectName);
 
     // console.log("apiProjectID / before / ", Cookies.get('apiProjectID') );
 
@@ -16,9 +19,9 @@ function setProject(projectID, projectName) {
 
     Cookies.set('apiProjectName', projectName);
 
- console.log("apiProjectID / after / ", Cookies.get('apiProjectID') );
+    console.log("apiProjectID / after / ", Cookies.get('apiProjectID') );
 
-console.log("apiProjectName / after / ", Cookies.get('apiProjectName') );
+    console.log("apiProjectName / after / ", Cookies.get('apiProjectName') );
 
 }
 

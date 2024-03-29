@@ -20,10 +20,6 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "intention")
-    @NonNull
-    private String intention;
-
     @Column(name = "name")
     @NonNull
     private String name;
@@ -32,21 +28,17 @@ public class Project {
     @NonNull
     private String description;
 
-    @Column(name = "creatorID")
+    @Column(name = "intention")
     @NonNull
-    private Integer creatorID;
-
-    @Column(name = "implementorID")
-    @NonNull
-    private Integer implementorID;
-
-    @Column(name = "managerID")
-    @NonNull
-    private Integer managerID;
+    private String intention;
 
     @Column(name = "calendar")
     @NonNull
-    private String calendar;
+    private String calendar = "";
+
+    @Column(name = "client")
+    @NonNull
+    private String client = "";
 
     public Integer getId() {
         return id;
@@ -80,21 +72,6 @@ public class Project {
         this.description = description;
     }
 
-    public Integer getCreatorID() {
-        return creatorID;
-    }
-
-    public void setCreatorID(Integer creatorID) {
-        this.creatorID = creatorID;
-    }
-
-    public Integer getManagerID() {
-        return managerID;
-    }
-
-    public void setManagerID(Integer managerID) {
-        this.managerID = managerID;
-    }
 
     public String getCalendar() {
         return calendar;
@@ -104,12 +81,12 @@ public class Project {
         this.calendar = calendar;
     }
 
-    public Integer getImplementorID() {
-        return implementorID;
+    public String getClient() {
+        return client;
     }
 
-    public void setImplementorID(Integer implementorID) {
-        this.implementorID = implementorID;
+    public void setClient(String client) {
+        this.client = client;
     }
 
     @Override
@@ -120,9 +97,6 @@ public class Project {
         sb.append(", intention=").append(intention);
         sb.append(", name=").append(name);
         sb.append(", description=").append(description);
-        sb.append(", creatorID=").append(creatorID);
-        sb.append(", implementorID=").append(implementorID);
-        sb.append(", managerID=").append(managerID);
         sb.append(", calendar=").append(calendar);
         sb.append('}');
         return sb.toString();

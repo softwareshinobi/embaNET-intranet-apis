@@ -1,26 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <title>
 
-Create User Story / Valorant Digital Scrum
+Edit Project / Valorant Digital Scrum
 
 </title>
+
+<!-- head / css / begin --><link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+<meta http-equiv="Pragma" content="no-cache" />
+
+<meta http-equiv="Expires" content="0" />
 
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+<link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+<!-- head / css / end -->
+
 </head>
+
 <body class="hold-transition sidebar-mini">
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar --><nav class="main-header navbar navbar-expand navbar-fpink navbar-daddrk"> 
@@ -37,7 +51,13 @@ Create User Story / Valorant Digital Scrum
 
 <li class="nav-item d-none d-sm-inline-block">
 
-<a href="/project/kanban.html" class="nav-link">Kanban</a>
+<a href="/project/list.html" class="nav-link">All Projects</a>
+
+</li>
+
+<li class="nav-item d-none d-sm-inline-block">
+
+<a href="/project/kanban.html" class="nav-link">Kanban Board</a>
 
 </li>
 
@@ -120,10 +140,14 @@ software shinobi
 
 </div>
 
-      <!-- SidebarSearch Form -->
-      <div styles="visibility:hidden" class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+<!-- SidebarSearch Form -->
+
+<div style="visibility:hidden" class="form-inline">
+
+<div class="input-group" data-widget="sidebar-search">
+
+<input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -150,7 +174,7 @@ software shinobi
               <i class="nav-icon fas fa-columns"></i>
               <p>
 
-project management
+agile
 
 <i class="right fas fa-angle-left"></i>
               </p>
@@ -196,12 +220,13 @@ project management
               <i class="nav-icon fas fa-table"></i>
               <p>
 
-.development
+monitoring
 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+
               <li class="nav-item">
                 <a href="/story/list.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -209,6 +234,12 @@ project management
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>API Monitoring</p>
+                </a>
+              </li>
       
             </ul>
           </li>
@@ -231,7 +262,7 @@ project management
 
 <h1>
 
-Create User Story
+Edit Project
 
 </h1>
 
@@ -239,7 +270,7 @@ Create User Story
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Create Project</li>
+              <li class="breadcrumb-item active">Edit Project</li>
             </ol>
           </div>
         </div>
@@ -261,6 +292,12 @@ Create User Story
               </div>
             </div>
             <div class="card-body">
+
+              <div class="form-group">
+                <label for="inputName">Project ID</label>
+                <input type="text" id="id" class="form-control">
+              </div>
+
               <div class="form-group">
                 <label for="inputName">Project Name</label>
                 <input type="text" id="name" class="form-control">
@@ -302,16 +339,23 @@ Create User Story
           <!-- /.card -->
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
 
-          <a onclick="clearForm()" href="#" class="btn btn-secondary">Clear Form</a>
 
-          <input onclick="processForm()" type="submit" value="Create New Project" class="btn btn-success float-
-center">
+<div class="row">
 
-        </div>
-      </div>
+<button type="button" class="btn btn-lg btn-warning col-2" onclick="clearForm()">Reset Form</button>
+
+<button type="button" class="btn btn-lg btn-success float-center col-8" onclick="pushEditedProject()">
+
+
+Edit Project
+
+</button>
+
+<button id="deleteProjectButton" type="button" class="btn btn-lg btn-danger col-2" onclick="deleteProject()">Delete Project</button>
+
+</div>
+
     </section>
     <!-- /.content -->
   </div>
@@ -334,11 +378,24 @@ Made with ❤ by the
 </footer>
 <!-- body / footer / end -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<!-- body / flyout / begin -->
+<aside class="control-sidebar control-sidebar-dark">
+
+<h4>Current Project</h4>
+
+<div id="projectBannerArea" class="btn-group-vertical col-12">
+
+<button id="projectBanner" disabled type="button" class="btn btn-lg btn-success">--</button>
+
+</div>
+
+<h4>Select Project</h4>
+
+<div id="projectSwitcherArea" class="btn-group-vertical col-12"></div>
+
+</aside>
+<!-- body / flyout / end -->
+
 </div>
 <!-- ./wrapper -->
 
@@ -361,7 +418,7 @@ Made with ❤ by the
 <script src="/project/scripting/flyout.js"></script>
 <!-- body / javascript / end -->
 
-<script src="../../scripting/project/create.js"></script>
+<script src="scripting/edit.js"></script>
 
 </body>
 
