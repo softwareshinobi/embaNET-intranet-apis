@@ -12,7 +12,6 @@ function resetForm() {
 
 }
 
-
 function loadStoryDetails() {
 
 	console.debug("enter > loadStoryDetails");	

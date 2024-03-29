@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     fetchCurrentProjects();
 
-	//setInterval(fetchCurrentProjects, 1000 * 8);
+	setInterval(fetchCurrentProjects, 1000 * 30);
 	
 });
 
@@ -63,12 +63,22 @@ function exportCurrentProjects(responseData) {
 
         trHTML += '    <td class="project-actions text-left">';
 
-trHTML += '<a onclick="setProject('+responseData[i].id + ',\'' + responseData[i].name +'\')" class="1qq1 btn btn-primary btn-sm" href="kanban.html">';
-
+        trHTML += '<a onclick="setProject('+responseData[i].id + ',\'' + responseData[i].name +'\')" class="1qq1 btn btn-primary btn-sm" href="kanban.html">';
         trHTML += '    <i class="fas fa-folder">';
         trHTML += '    </i>';
         trHTML += '    kanban';
         trHTML += '    </a>';
+//        trHTML += '    </td>	';
+
+        trHTML += '  ';
+//        trHTML += '    <td class="project-actions text-left">';
+
+        trHTML += '<a onclick="setProject('+responseData[i].id + ',\'' + responseData[i].name +'\')" class="1qq1 btn btn-warning btn-sm" href="edit.html">';
+        trHTML += '    <i class="fas fa-edit">';
+        trHTML += '    </i>';
+        trHTML += '    edit';
+        trHTML += '    </a>';
+
         trHTML += '    </td>	';
 
     }

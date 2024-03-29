@@ -1,37 +1,86 @@
 
 $(document).ready(function () {
     
-    alert("edit.js");
+    loadProjectDetails();
 
-	clearForm();
+    //alert("edit.js");
 
 });
 
-function clearForm(){
+function loadProjectDetails() {
 
-    $("#name").val("");
+	console.debug("enter > loadProjectDetails");	
 
-    $("#description").val("");
+    var currentProjectID = projectID();
 
-    $("#client").val("");
+	console.debug("    projectID / " + currentProjectID);
 
-    $("#intention").val("");
+	$.ajax({
+
+		type: "GET",
+		
+		url: apiURLBase + "/project/" + currentProjectID,
+
+		contentType: "text/plain",
+		
+		crossDomain: true,				
+
+		success: function (project, status, jqXHR) {
+
+            toastr.info(
+
+                'Edit Project',
+
+                'You are editing project "'+ project.name + '"',
+
+                {timeOut: 8000});
+
+        	console.debug("    project / " + project);
+
+            $("#id").val(project.id);
+
+            $("#name").val(project.name);
+
+            $("#description").val(project.description);
+
+            $("#intention").val(project.intention);
+
+            $("#client").val(project.client);
+
+            $("#status").val(project.status).change();
+
+		},
+
+		error: function (exception, status) {
+
+
+			console.log("error / " + exception);
+
+		}
+
+	});
 
 }
 
-function processForm() {
+function pushEditedProject() {
 
-	console.debug("enter > processForm");	
+	console.debug("enter > pushEditedProject");	
+
+    currentProjectID = $("#id").val();
+
+    currentProjectName = $("#name").val();
 
 	projectPayload = JSON.stringify({
 
+        id: currentProjectID,
+
 		name: $("#name").val(),
 
-		description:  $("#description").val(),
+		description: $("#description").val(),
 
-		client:  $("#client").val(),
+		client: $("#client").val(),
 
-		intention:  $("#intention").val(),
+		intention: $("#intention").val(),
 
 	});
 
@@ -53,17 +102,15 @@ function processForm() {
 
 		success: function (data, status, jqXHR) {
 
-			clearForm();
-
-            notifySaveSuccess(projectPayload);
+            notifyEditSuccess(currentProjectName);
 
 		},
 
 		error: function (jqXHR, status) {
 
-			console.log("error during request /",jqXHR);
+			console.log("error / ", jqXHR);
 
-            notifySaveFailure(projectPayload);
+            notifyEditFailure(currentProjectName);
 
 		}
 
@@ -71,28 +118,69 @@ function processForm() {
 
 }
 
-function notifySaveSuccess(projectName) {
+function notifyEditSuccess(projectName) {
 
     toastr.success(
 
-        'Project Created',
+        'Project Updated',
 
-        'The project "'+ projectName +'" was created.',
+        'The project "'+ projectName +'" was updated.',
 
         {timeOut: 5000});
 
 }
 
-function notifySaveFailure(projectName) {
+function notifyEditFailure(projectName) {
 
     toastr.error(
 
-        'Project Creation Failure',
+        'Project Update Failure',
 
-        'The project "'+ projectName +'" WAS NOT created.',
+        'The project "'+ projectName +'" WAS NOT updated.',
 
         {timeOut: 5000}
 
     );   
+
+}
+
+
+function deleteProject() {
+
+	console.debug("enter > deleteStory");	
+
+   	console.debug("project id / ", projectID());
+
+	$.ajax({
+
+		type: "DELETE",
+
+		url: apiURLBase + "/project/" + projectID(),
+
+		contentType: "application/json; charset=utf-8",
+
+		crossDomain: true,
+
+		dataType: "text",
+
+		success: function (data, status, jqXHR) {
+
+            alert("deleted!");
+
+//            notifyUpdateSuccess(userStoryName);
+
+		},
+
+		error: function (jqXHR, status) {
+
+            alert("not deleted :(");
+
+			console.log("error during request /", jqXHR);
+
+            notifyUpdateFailure(userStoryName);
+
+		}
+
+	});
 
 }

@@ -1,6 +1,4 @@
-FROM nginx:latest
-
-MAINTAINER Software Shinobi "the.software.shinobi@gmail.com"
+FROM nginx
 
 WORKDIR /usr/share/nginx/html/
 
