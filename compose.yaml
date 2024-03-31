@@ -14,7 +14,7 @@ services:
 
         ports:
 
-            - 8880:80
+            - 4444:80
 
     valorant-digital-workspace-links:
 
@@ -86,17 +86,17 @@ services:
 
         image: mariadb
 
-        ##   volumes:
+        volumes:
 
-        ##       - ./.container-volumes/mariadb-server:/var/lib/mysql
+            - .volumes/database:/var/lib/mysql
 
-        ##   ports:
+##   ports:
 
         ##       - "8886:3306"
 
         environment:
 
-            MYSQL_ROOT_PASSWORD: aggiepride
+            MYSQL_ROOT_PASSWORD: ag!gi!ep!ri!de
 
             MYSQL_DATABASE: valorant_digital_workspace
 
