@@ -2,6 +2,6 @@ set -e
 
 set -x
 
-cd .automatr
+cd .automation
 
 bash start.bash
