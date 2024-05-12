@@ -4,9 +4,21 @@ set -e
 
 set -x
 
+## navigate out of the .automation folder back to root dir
+
 cd ..
 
-### note / this will introduce downtime. but it's the cleanest way.
+## print compose script for logging visibility
+
+echo
+echo "the compose file"
+echo
+
+cat compose.yaml
+
+sleep 4
+
+### note / the following build sequences introduces downtime. but it's the cleanest way.
 
 echo
 echo "shutting down containers."
