@@ -1,13 +1,31 @@
+#!/bin/bash
+
 set -e
 
 set -x
 
 cd ..
 
-docker-compose pull
+### note / this will introduce downtime. but it's the cleanest way.
 
-docker-compose build
+echo
+echo "shutting down containers."
+echo
 
 docker-compose down --remove-orphans
 
-docker-compose up
+echo
+echo "updating images."
+echo
+
+docker-compose pull
+
+echo
+echo "building images."
+echo
+
+docker-compose up --build -d
+
+echo
+echo "containers up."
+echo
