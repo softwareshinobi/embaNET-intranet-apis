@@ -226,14 +226,24 @@ services:
 
             LETSENCRYPT_HOST: links.mateomontenegro.online
 
+##
 ## live demo
-
-
+##
     valorant-digital-workspace-demo:
 
         container_name: valorant-digital-workspace-demo
 
-        image: nginx
+        image: softwareshinobi/valorant-digital-workspace-links
+
+        build: 
+
+            context: demo
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8481:80
 
         environment:
 
