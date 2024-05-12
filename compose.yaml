@@ -1,84 +1,70 @@
 services:
 
-    valorant-digital-workspace-web:
+##########################################
+##
+## network infrastructure
+##
+##########################################
 
-        container_name: valorant-digital-workspace-web
+    valorant-digital-workspace-proxy:
 
-        image: softwareshinobi/valorant-digital-workspace-web
+        container_name: valorant-digital-workspace-proxy
 
-        build: 
+        image: nginxproxy/nginx-proxy
 
-            context: web
-
-            dockerfile: Dockerfile
-
-        ports:
-
-            - 8880:80
-
-    valorant-digital-workspace-links:
-
-        container_name: valorant-digital-workspace-links
-
-        image: softwareshinobi/valorant-digital-workspace-links
-
-        build: 
-
-            context: links
-
-            dockerfile: Dockerfile
+        restart: unless-stopped
 
         ports:
 
-            - 8881:80
+            - 80:80
 
-    valorant-digital-workspace-docs:
+            - 443:443
 
-        container_name: valorant-digital-workspace-docs
+        volumes:
 
-        image: softwareshinobi/valorant-digital-workspace-docs
+            - /var/run/docker.sock:/tmp/docker.sock:ro
 
-        build: 
+            - /var/docker/nginx/html:/usr/share/nginx/html
 
-            context: docs
+            - /var/docker/nginx/certs:/etc/nginx/certs
 
-            dockerfile: Dockerfile
+            - /var/docker/nginx/vhost:/etc/nginx/vhost.d
 
-        ports:
+        logging:
 
-            - 8882:80
+            options:
 
-    valorant-digital-workspace-api:
+                max-size: "10m"
 
-        container_name: valorant-digital-workspace-api
-        
-        image: softwareshinobi/valorant-digital-workspace-api
+                max-file: "3"
 
-        depends_on:
+    valorant-digital-workspace-letsencrypt:
 
-           - valorant-digital-workspace-database
+        container_name: valorant-digital-workspace-letsencrypt
 
-        build: 
+        image: jrcs/letsencrypt-nginx-proxy-companion
 
-            context: .
+        restart: unless-stopped
 
-            dockerfile: Dockerfile
-    
-        restart: always
+        volumes_from:
 
-        ports:
+            - valorant-digital-workspace-proxy
 
-            - "8888:8888"
+        volumes:
+
+            - /var/run/docker.sock:/var/run/docker.sock
+
+            - /var/docker/nginx/acme:/etc/acme.sh
 
         environment:
 
-            DB_HOST: valorant-digital-workspace-database
+            DEFAULT_EMAIL: workspace@valorantsoftware.digital
 
-            DB_NAME: valorant_digital_workspace
-
-            DB_USER: valorant_digital_workspace
-
-            DB_PASS: valorant_digital_workspace
+##########################################
+##
+## storage infrastructure
+##
+##########################################
 
     valorant-digital-workspace-database:
 
@@ -86,9 +72,9 @@ services:
 
         image: mariadb
 
-        ##   volumes:
+        volumes:
 
-        ##       - ./.container-volumes/mariadb-server:/var/lib/mysql
+            - .volumes/mariadb:/var/lib/mysql
 
         ##   ports:
 
@@ -126,6 +112,131 @@ services:
 
             PMA_HOST: valorant-digital-workspace-database
 
-            PMA_PORT: 3306
+            VIRTUAL_HOST: database.mateomontenegro.online
 
-            PMA_ARBITRARY: 1
+            LETSENCRYPT_HOST: database.mateomontenegro.online
+
+## api
+
+
+    valorant-digital-workspace-api:
+
+        container_name: valorant-digital-workspace-api
+        
+        image: softwareshinobi/valorant-digital-workspace-api
+
+        depends_on:
+
+           - valorant-digital-workspace-database
+
+        build: 
+
+            context: .
+
+            dockerfile: Dockerfile
+    
+        restart: always
+
+        ports:
+
+            - "8888:8888"
+
+        environment:
+
+            DB_HOST: valorant-digital-workspace-database
+
+            DB_NAME: valorant_digital_workspace
+
+            DB_USER: valorant_digital_workspace
+
+            DB_PASS: valorant_digital_workspace
+
+            VIRTUAL_HOST: apis.mateomontenegro.online
+
+            LETSENCRYPT_HOST: apis.mateomontenegro.online
+
+
+## front end
+
+    valorant-digital-workspace-web:
+
+        container_name: valorant-digital-workspace-web
+
+        image: softwareshinobi/valorant-digital-workspace-web
+
+        build: 
+
+            context: web
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8880:80
+
+        environment:
+
+            VIRTUAL_HOST: mateomontenegro.online
+
+            LETSENCRYPT_HOST: mateomontenegro.online
+
+## documentation
+
+    valorant-digital-workspace-docs:
+
+        container_name: valorant-digital-workspace-docs
+
+        image: softwareshinobi/valorant-digital-workspace-docs
+
+        build: 
+
+            context: docs
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8882:80
+
+        environment:
+
+            VIRTUAL_HOST: docs.mateomontenegro.online
+
+            LETSENCRYPT_HOST: docs.mateomontenegro.online
+
+    valorant-digital-workspace-links:
+
+        container_name: valorant-digital-workspace-links
+
+        image: softwareshinobi/valorant-digital-workspace-links
+
+        build: 
+
+            context: links
+
+            dockerfile: Dockerfile
+
+        ports:
+
+            - 8881:80
+
+        environment:
+
+            VIRTUAL_HOST: links.mateomontenegro.online
+
+            LETSENCRYPT_HOST: links.mateomontenegro.online
+
+## live demo
+
+
+    valorant-digital-workspace-demo:
+
+        container_name: valorant-digital-workspace-demo
+
+        image: nginx
+
+        environment:
+
+            VIRTUAL_HOST: demo.mateomontenegro.online
+
+            LETSENCRYPT_HOST: demo.mateomontenegro.online
