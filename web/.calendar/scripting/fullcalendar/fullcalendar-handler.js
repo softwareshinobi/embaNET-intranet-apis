@@ -16,7 +16,7 @@ function getCalendarDetailsFromServer() {
 
 		type: "GET",
 
-		url: upstreamAPIURL + "/intention/",
+		url: upstreamAPIURL + "",
 
 		crossDomain: true,
 
@@ -94,7 +94,7 @@ function saveCalendarDetailsToServer() {
 
 		type: "POST",
 
-		url: upstreamAPIURL + "/intention/set-intention",
+		url: upstreamAPIURL + "",
 
 		data: payload,
 
