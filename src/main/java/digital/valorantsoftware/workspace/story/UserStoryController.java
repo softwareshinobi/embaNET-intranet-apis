@@ -23,14 +23,11 @@ public class UserStoryController {
     public UserStoryController() {
 
         System.out.println("## ");
-
         System.out.println("## init > UserStoryController");
-
         System.out.println("## ");
 
     }
 
-//
     @GetMapping("/")
     public List<UserStory> findAll() {
 
@@ -38,7 +35,7 @@ public class UserStoryController {
 
         List<UserStory> userStoryList = this.userStoryService.findAll();
 
-        System.out.println("projectList / ");
+        System.out.println("userStoryList / ");
 
         System.out.println(userStoryList);
 
@@ -96,14 +93,6 @@ public class UserStoryController {
         this.userStoryService.delete(id);
 
     }
-
-
-//    @GetMapping("")
-//    public String hello() {
-//
-//        return "User Story API";
-//
-//    }
 
     @GetMapping("health")
     public String health() {
