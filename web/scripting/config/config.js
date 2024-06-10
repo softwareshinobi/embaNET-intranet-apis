@@ -1,7 +1,7 @@
 
 apiURLBase="https://apis.mateomontenegro.online"
 
-//apiURLBase="http://localhost:8888"
+apiURLBase="http://localhost:8888"
 
 function setProject(projectID, projectName) {
 

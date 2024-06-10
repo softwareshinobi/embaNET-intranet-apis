@@ -66,8 +66,44 @@ software shinobi
 		
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        
-		          <li class="nav-header">Productivity</li>
+       
+		          <li class="nav-header">Work Space</li>
+
+		<li class="nav-item">
+		
+            <a class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+
+Current Activities
+
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+                      <li class="nav-item">
+                <a href="/story/inprogress.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>In Progress</p>
+                </a>
+              </li>
+
+
+
+     <li class="nav-item">
+                <a href="/story/completed.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Score Board</p>
+                </a>
+              </li>
+
+
+              
+            </ul>
+          </li>
+       
+</li>		          <li class="nav-header">Productivity</li>
 
 
 		<li class="nav-item menu-open">
@@ -84,6 +120,8 @@ agile
 
 
             <ul class="nav nav-treeview">
+
+
 
         <li class="nav-item">
                 <a href="/project/kanban.html" class="nav-link">
@@ -122,7 +160,7 @@ agile
               <i class="nav-icon fas fa-table"></i>
               <p>
 
-monitoring
+developer
 
                 <i class="right fas fa-angle-left"></i>
               </p>

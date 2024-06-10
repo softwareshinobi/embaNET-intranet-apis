@@ -30,20 +30,7 @@ public class UserStoryController {
 
     }
 
-    @GetMapping("")
-    public String hello() {
-
-        return "User Story API";
-
-    }
-
-    @GetMapping("/health")
-    public String health() {
-
-        return "OK";
-
-    }
-
+//
     @GetMapping("/")
     public List<UserStory> findAll() {
 
@@ -79,7 +66,7 @@ public class UserStoryController {
 
     }
 
-    @GetMapping("/byStatus/{status}")
+    @GetMapping("status/{status}")
     List<UserStory> findByStatus(@PathVariable String status) {
 
         return this.userStoryService.findByStatus(status);
@@ -111,3 +98,16 @@ public class UserStoryController {
     }
 
 }
+//    @GetMapping("")
+//    public String hello() {
+//
+//        return "User Story API";
+//
+//    }
+//
+//    @GetMapping("/health")
+//    public String health() {
+//
+//        return "OK";
+//
+//    }
