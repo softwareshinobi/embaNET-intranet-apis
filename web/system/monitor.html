@@ -6,23 +6,42 @@
 
 <title>
 
-Create User Story / Valorant Digital Scrum
+Monitor / Valorant Digital Scrum
 
 </title>
+<!-- head / css / begin --><link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+<meta http-equiv="Pragma" content="no-cache" />
+
+<meta http-equiv="Expires" content="0" />
 
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+<!-- head / css / end --><! -- software shinobi shit -->
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
 </head>
+
 <body class="hold-transition sidebar-mini">
+
 <!-- Site wrapper -->
+
 <div class="wrapper">
   <!-- Navbar --><nav class="main-header navbar navbar-expand navbar-fpink navbar-daddrk"> 
 
@@ -69,7 +88,6 @@ Create User Story / Valorant Digital Scrum
     </ul>
   </nav>
  <!-- /.navbar -->
-
 
 <!-- navigation / side / begin --><!-- Main Sidebar Container -->
 
@@ -264,7 +282,7 @@ Help Center
     <!-- /.sidebar -->
   </aside>
 <!-- navigation / side / end -->
-
+ 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -272,18 +290,12 @@ Help Center
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-
-<h1>
-
-Create User Story
-
-</h1>
-
+            <h1>User Stories</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Create User Story</li>
+              <li class="breadcrumb-item active">User Stories Projects</li>
             </ol>
           </div>
         </div>
@@ -292,84 +304,27 @@ Create User Story
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">General</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputName"> Name</label>
-                <input type="text" id="name" class="form-control">
-              </div>
-    
 
 
-          <div class="form-group">
-                <label for="inputDescription"> Description</label>
-                <textarea id="description" class="form-control" rows="4"></textarea>
-              </div>
+							<div id="standardAPI" class="card text-white bg-secondary card-box">
 
-           
-         
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Project Information</h3>
+								<div class="card-header">Standard Text Operations API</div>
+								<div class="card-body">
 
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
+									<h5 class="card-title text-white">
+										Integrates with Editing &amp; Writing API For Text Manipulation. 
+									</h5>
 
-            </div>
+									<p id="standardAPIText" class="card-text">
+										Loading API Node status...
+									</p>
 
-<div class="form-group">
-<label for="exampleSelectBorder">Project Name <code>assign this new story here:</code></label>
-<select class="custom-select form-control-border" id="projectSelectArea">
-<option>Value 1</option>
-<option>Value 2</option>
-<option>Value 3</option>
-</select>
-</div>
+								</div>
+							</div>
 
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputEstimatedBudget">Project Intention</label>
-<textarea id="intention" class="form-control" rows="4"></textarea>
-              </div>
-             </div>
 
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
+</section>
 
-          <a onclick="clearForm()" href="#" class="btn btn-secondary">Clear Form</a>
-
-          <input onclick="processForm()" type="submit" value="Create User Story" class="btn btn-success float-
-center">
-
-        </div>
-      </div>
-    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -391,12 +346,26 @@ Made with ❤ by the
 </footer>
 <!-- body / footer / end -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<!-- body / flyout / begin -->
+<aside class="control-sidebar control-sidebar-dark">
+
+<h4>Current Project</h4>
+
+<div id="projectBannerArea" class="btn-group-vertical col-12">
+
+<button id="projectBanner" disabled type="button" class="btn btn-lg btn-success">--</button>
+
 </div>
+
+<h4>Select Project</h4>
+
+<div id="projectSwitcherArea" class="btn-group-vertical col-12"></div>
+
+</aside>
+<!-- body / flyout / end -->
+
+</div>
+
 <!-- ./wrapper -->
 
 <!-- body / javascript / begin --><! -- software shinobi shit -->
@@ -418,7 +387,7 @@ Made with ❤ by the
 <script src="/project/scripting/flyout.js"></script>
 <!-- body / javascript / end -->
 
-<script src="scripting/create.js"></script>
+<script src="monitor.js"></script>
 
 </body>
 

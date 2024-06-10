@@ -97,17 +97,19 @@ public class UserStoryController {
 
     }
 
-}
+
 //    @GetMapping("")
 //    public String hello() {
 //
 //        return "User Story API";
 //
 //    }
-//
-//    @GetMapping("/health")
-//    public String health() {
-//
-//        return "OK";
-//
-//    }
+
+    @GetMapping("health")
+    public String health() {
+
+        return "OK";
+
+    }
+
+}
