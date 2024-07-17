@@ -15,7 +15,7 @@ function paintUserContent() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/",
+		url: apiURLBase + "/story",
 
 		contentType: "text/plain",
 		

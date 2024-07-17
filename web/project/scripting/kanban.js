@@ -39,7 +39,7 @@ function visualizeProjectBacklogUserStories() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/byStatus/backlog",
+		url: apiURLBase + "/story/status/backlog",
 
 		contentType: "text/plain",
 		
@@ -123,7 +123,7 @@ function visualizeProjectTodoUserStories() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/byStatus/todo",
+		url: apiURLBase + "/story/status/todo",
 
 		contentType: "text/plain",
 		
@@ -209,7 +209,7 @@ function visualizeProjectInprogressUserStories() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/byStatus/inprogress",
+		url: apiURLBase + "/story/status/inprogress",
 
 		contentType: "text/plain",
 		
@@ -295,7 +295,7 @@ function visualizeProjectDoneUserStories() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/story/byStatus/done",
+		url: apiURLBase + "/story/status/done",
 
 		contentType: "text/plain",
 		

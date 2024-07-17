@@ -23,12 +23,12 @@ public class UserStoryController {
     public UserStoryController() {
 
         System.out.println("## ");
-        System.out.println("## init > UserStoryController");
+        System.out.println("## init > User Story API");
         System.out.println("## ");
 
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<UserStory> findAll() {
 
         System.out.println("enter > findAll");
@@ -45,7 +45,7 @@ public class UserStoryController {
 
     }
 
-    @PutMapping("/")
+    @PutMapping("")
     UserStory createUserStory(@RequestBody UserStory userStory) {
 
         System.out.println("enter > createUserStory");
@@ -70,7 +70,7 @@ public class UserStoryController {
 
     }
 
-    @PostMapping("/update")
+    @PostMapping("update")
     public UserStory updateUserStory(@RequestBody UserStory project) {
 
         System.out.println("enter > updateUserStory");
@@ -87,7 +87,7 @@ public class UserStoryController {
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable Long id) {
 
         this.userStoryService.delete(id);

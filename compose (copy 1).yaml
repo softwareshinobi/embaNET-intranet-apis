@@ -2,6 +2,66 @@ services:
 
 ##########################################
 ##
+## network infrastructure
+##
+##########################################
+
+    valorant-digital-workspace-proxy:
+
+        container_name: valorant-digital-workspace-proxy
+
+        image: nginxproxy/nginx-proxy
+
+        restart: unless-stopped
+
+        ports:
+
+            - 80:80
+
+            - 443:443
+
+        volumes:
+
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+
+            - /var/docker/nginx/html:/usr/share/nginx/html
+
+            - /var/docker/nginx/certs:/etc/nginx/certs
+
+            - /var/docker/nginx/vhost:/etc/nginx/vhost.d
+
+        logging:
+
+            options:
+
+                max-size: "10m"
+
+                max-file: "3"
+
+    valorant-digital-workspace-letsencrypt:
+
+        container_name: valorant-digital-workspace-letsencrypt
+
+        image: jrcs/letsencrypt-nginx-proxy-companion
+
+        restart: unless-stopped
+
+        volumes_from:
+
+            - valorant-digital-workspace-proxy
+
+        volumes:
+
+            - /var/run/docker.sock:/var/run/docker.sock
+
+            - /var/docker/nginx/acme:/etc/acme.sh
+
+        environment:
+
+            DEFAULT_EMAIL: workspace@valorantsoftware.digital
+
+##########################################
+##
 ## storage infrastructure
 ##
 ##########################################
@@ -63,7 +123,7 @@ services:
 
         container_name: valorant-digital-workspace-api
         
-        image: softwareshinobi/valorant-digital-workspace-api:aventador
+        image: softwareshinobi/valorant-digital-workspace-api
 
         depends_on:
 
@@ -119,7 +179,7 @@ services:
 
         container_name: valorant-digital-workspace-web
 
-        image: softwareshinobi/valorant-digital-workspace-web:aventador
+        image: softwareshinobi/valorant-digital-workspace-web
 
         build: 
 
@@ -143,7 +203,7 @@ services:
 
         container_name: valorant-digital-workspace-docs
 
-        image: softwareshinobi/valorant-digital-workspace-docs:aventador
+        image: softwareshinobi/valorant-digital-workspace-docs
 
         build: 
 

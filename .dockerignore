@@ -9,3 +9,7 @@
 .backup
 
 .volumes
+
+web/
+
+docs/
