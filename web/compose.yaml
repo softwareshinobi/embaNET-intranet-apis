@@ -1,10 +1,10 @@
 services:
 
-   web:
+    valorant-digital-workspace-web:
 
-        container_name: web
+        container_name: valorant-digital-workspace-web
 
-        image: web
+        image: softwareshinobi/valorant-digital-workspace-web:aventador
 
         build: 
 
@@ -14,10 +14,4 @@ services:
 
         ports:
 
-            - 4444:80
-
-        environment:
-
-            VIRTUAL_HOST: mateomontenegro.online
-
-            LETSENCRYPT_HOST: mateomontenegro.online
+            - 8080:80

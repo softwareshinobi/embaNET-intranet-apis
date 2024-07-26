@@ -1,5 +1,5 @@
 
-apiURLBase="https://apis.valorantsoftware.digital"
+apiURLBase="http://intranet.aventador.softwareshinobi.digital:28888"
 
 //##apiURLBase="http://localhost:8888"
 
