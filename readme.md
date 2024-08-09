@@ -1,11 +1,4 @@
----
-layout: page
-title: Article Magick - Brew Up TextOps Alchemy
-permalink: /portfolio/kanbanflow
-comments: false
-image: assets/imagery/portfolio/kanbanflow/cover.png
-imageshadow: true
----
+# Kanban Flow
 
 Harness the power of content creation and automation to transform your ContentOps.
 
