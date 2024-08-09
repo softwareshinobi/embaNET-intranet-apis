@@ -2,6 +2,8 @@
 
 Harness the power of content creation and automation to transform your ContentOps.
 
+<img src="/docs/docs/assets/imagery/cover.png" />
+
 **Article Magick is a REST-enabled API and intuitive dashboard that empowers you to effortlessly manipulate, analyze, and optimize text, taking your content operations to a whole new level.**
 
 ## Project Overview

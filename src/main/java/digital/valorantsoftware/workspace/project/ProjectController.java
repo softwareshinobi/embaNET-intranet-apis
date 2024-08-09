@@ -24,27 +24,13 @@ public class ProjectController {
 
         System.out.println("## ");
 
-        System.out.println("## init > ProjectController");
+        System.out.println("## init > Project APIs");
 
         System.out.println("## ");
 
     }
 
-    @GetMapping("/health")
-    public String health() {
-
-        return "OK";
-
-    }
-
     @GetMapping("")
-    public String hello() {
-
-        return "ProjectController";
-
-    }
-
-    @GetMapping("/")
     public List<Project> findAll() {
 
         System.out.println("enter > findAllProjects");
@@ -61,7 +47,7 @@ public class ProjectController {
 
     }
 
-    @PutMapping("/")
+    @PutMapping("")
     Project createProject(@RequestBody Project project) {
 
         System.out.println("enter > createProject");
@@ -72,14 +58,14 @@ public class ProjectController {
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     Project findById(@PathVariable Long id) {
 
         return this.projectService.findById(id);
 
     }
 
-    @PostMapping("/update")
+    @PostMapping("update")
     public Project updateProject(@RequestBody Project project) {
 
         System.out.println("enter > updateProject");
@@ -96,7 +82,7 @@ public class ProjectController {
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable Long id) {
 
         this.projectService.delete(id);

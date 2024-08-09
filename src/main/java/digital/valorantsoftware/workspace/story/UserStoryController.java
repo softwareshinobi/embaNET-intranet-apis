@@ -56,7 +56,7 @@ public class UserStoryController {
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     UserStory findById(@PathVariable Long id) {
 
         return this.userStoryService.findById(id);
@@ -91,13 +91,6 @@ public class UserStoryController {
     public void deleteById(@PathVariable Long id) {
 
         this.userStoryService.delete(id);
-
-    }
-
-    @GetMapping("health")
-    public String health() {
-
-        return "OK";
 
     }
 
