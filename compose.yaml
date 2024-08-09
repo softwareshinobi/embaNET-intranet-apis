@@ -2,124 +2,15 @@ services:
 
 ##########################################
 ##
-## storage infrastructure
+## kanban-flow / bootstrap front end
 ##
 ##########################################
 
-    valorant-digital-workspace-database:
+    kanban-flow-web:
 
-        container_name: valorant-digital-workspace-database
+        container_name: kanban-flow-web
 
-        image: mariadb
-
-        volumes:
-
-            - .volumes/mariadb:/var/lib/mysql
-
-        ##   ports:
-
-        ##       - "8886:3306"
-
-        environment:
-
-            MYSQL_ROOT_PASSWORD: aggiepride
-
-            MYSQL_DATABASE: valorant_digital_workspace
-
-            MYSQL_USER: valorant_digital_workspace
-
-            MYSQL_PASSWORD: valorant_digital_workspace
-
-    valorant-digital-workspace-phpmyadmin:
-
-        container_name: valorant-digital-workspace-phpmyadmin
-
-        image: beeyev/phpmyadmin-lightweight
-
-        depends_on:
-
-           - valorant-digital-workspace-database
-
-        links:
-
-           - valorant-digital-workspace-database
-
-        ports:
-
-            - 8885:80
-
-        environment:
-
-            PMA_HOST: valorant-digital-workspace-database
-
-            VIRTUAL_HOST: database.mateomontenegro.online
-
-            LETSENCRYPT_HOST: database.mateomontenegro.online
-
-## api
-
-
-    valorant-digital-workspace-api:
-
-        container_name: valorant-digital-workspace-api
-        
-        image: softwareshinobi/valorant-digital-workspace-api:aventador
-
-        depends_on:
-
-           - valorant-digital-workspace-database
-
-        build: 
-
-            context: .
-
-            dockerfile: Dockerfile
-    
-        restart: always
-
-        ports:
-
-            - "8888:8888"
-
-        environment:
-
-            DB_HOST: valorant-digital-workspace-database
-
-            DB_NAME: valorant_digital_workspace
-
-            DB_USER: valorant_digital_workspace
-
-            DB_PASS: valorant_digital_workspace
-
-            VIRTUAL_HOST: apis.mateomontenegro.online
-
-            LETSENCRYPT_HOST: apis.mateomontenegro.online
-
-## front end
-
-    valorant-digital-workspace-auth:
-
-        container_name: valorant-digital-workspace-auth
-
-        image: quay.io/dtan4/nginx-basic-auth-proxy:latest
-
-        environment:
-
-            VIRTUAL_HOST: mateomontenegro.online
-
-            LETSENCRYPT_HOST: mateomontenegro.online
-
-            BASIC_AUTH_USERNAME: mateo
-
-            BASIC_AUTH_PASSWORD: valkyrieyprima
-
-            PROXY_PASS: http://valorant-digital-workspace-web/
-
-    valorant-digital-workspace-web:
-
-        container_name: valorant-digital-workspace-web
-
-        image: softwareshinobi/valorant-digital-workspace-web:aventador
+        image: softwareshinobi/kanban-flow-web:intranet
 
         build: 
 
@@ -129,21 +20,57 @@ services:
 
         ports:
 
-            - 8880:80
+            - "10.28.1.1:8880:80"
+
+##########################################
+##
+## kanban-flow / spring rest back end
+##
+##########################################
+
+    kanban-flow-api:
+
+        container_name: kanban-flow-api
+        
+        image: softwareshinobi/kanban-flow-api:intranet
+
+        build: 
+
+            context: .
+
+            dockerfile: Dockerfile
+
+        depends_on:
+
+           - kanban-flow-database
+    
+        restart: unless-stopped
+
+        ports:
+
+            - "10.28.1.1:8888:8888"
 
         environment:
 
-            VIRTUAL_HOST: mateomontenegro.online
+            DB_HOST: kanban-flow-database
 
-            LETSENCRYPT_HOST: mateomontenegro.online
+            DB_NAME: valorant_digital_workspace
 
-## documentation
+            DB_USER: valorant_digital_workspace
 
-    valorant-digital-workspace-docs:
+            DB_PASS: valorant_digital_workspace
 
-        container_name: valorant-digital-workspace-docs
+##########################################
+##
+## kanban-flow / documentation
+##
+##########################################
 
-        image: softwareshinobi/valorant-digital-workspace-docs:aventador
+    kanban-flow-docs:
+
+        container_name: kanban-flow-docs
+
+        image: softwareshinobi/kanban-flow-docs:intranet
 
         build: 
 
@@ -153,10 +80,4 @@ services:
 
         ports:
 
-            - 8882:80
-
-        environment:
-
-            VIRTUAL_HOST: docs.mateomontenegro.online
-
-            LETSENCRYPT_HOST: docs.mateomontenegro.online
+            - "10.28.1.1:8889:80"
