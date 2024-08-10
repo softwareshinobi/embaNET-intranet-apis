@@ -8,9 +8,9 @@ set -e
 
 set -x
 
-docker-compose -f minimal.yaml down --remove-orphans
-
 docker-compose -f minimal.yaml pull
+
+docker-compose -f minimal.yaml down --remove-orphans
 
 docker-compose -f minimal.yaml build
 

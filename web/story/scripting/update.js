@@ -105,7 +105,7 @@ function processUpdateForm() {
 
 		type: "PUT",
 
-		url: apiURLBase + "/story/",
+		url: apiURLBase + "/story",
 
 		data: projectPayload,
 

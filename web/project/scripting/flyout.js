@@ -27,7 +27,7 @@ function loadAllProjects() {
 
 		type: "GET",
 		
-		url: apiURLBase + "/project/",
+		url: apiURLBase + "/project",
 
 		contentType: "text/plain",
 		

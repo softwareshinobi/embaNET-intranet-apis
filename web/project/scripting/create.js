@@ -39,7 +39,7 @@ function processForm() {
 
 		type: "PUT",
 
-		url: apiURLBase + "/project/",
+		url: apiURLBase + "/project",
 
 		data: projectPayload,
 

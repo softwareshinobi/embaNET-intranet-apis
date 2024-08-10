@@ -18,6 +18,8 @@ services:
 
             dockerfile: Dockerfile
 
+        restart: unless-stopped
+
         ports:
 
             - "10.28.1.1:8880:80"
@@ -40,10 +42,6 @@ services:
 
             dockerfile: Dockerfile
 
-        depends_on:
-
-           - kanban-flow-database
-    
         restart: unless-stopped
 
         ports:
@@ -52,13 +50,13 @@ services:
 
         environment:
 
-            DB_HOST: kanban-flow-database
+            DB_HOST: 10.28.1.1
 
-            DB_NAME: valorant_digital_workspace
+            DB_NAME: huracan
 
-            DB_USER: valorant_digital_workspace
+            DB_USER: huracan
 
-            DB_PASS: valorant_digital_workspace
+            DB_PASS: huracan
 
 ##########################################
 ##
@@ -77,6 +75,8 @@ services:
             context: docs
 
             dockerfile: Dockerfile
+
+        restart: unless-stopped
 
         ports:
 

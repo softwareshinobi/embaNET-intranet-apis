@@ -10,7 +10,7 @@
         
         <artifactId>spring-boot-starter-parent</artifactId>
         
-        <version>3.1.0</version>
+        <version>3.3.2</version>
         
         <relativePath/>
         
@@ -18,13 +18,13 @@
     
     <groupId>digital.softwareshinobi</groupId>
     
-    <artifactId>valorant-digital-workspace-api</artifactId>
+    <artifactId>kanban-flow-dashboard-reporting</artifactId>
     
     <version>1.0</version>
     
-    <name>valorant-digital-workspace-api</name>
+    <name>kanban-flow-dashboard-reporting</name>
     
-    <description>valorant-digital-workspace-api description</description>
+    <description>kanban-flow-dashboard-reporting</description>
 
     <properties>        
         <java.version>17</java.version>        

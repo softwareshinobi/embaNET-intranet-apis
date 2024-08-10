@@ -21,7 +21,7 @@ function refreshStandardAPIHealthCheckStatus() {
 
 		type: "GET",
 
-		url: apiURLBase + "/story/health",
+		url: apiURLBase + "",
 
 		contentType: "application/json; charset=utf-8",
 
