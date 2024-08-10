@@ -24,7 +24,7 @@ function fetchIntention() {
 
         type: "GET",
 
-        url: apiURL + "",
+        url: apiURLBase + "",
 
         crossDomain: true,
 
@@ -78,7 +78,7 @@ function setIntention() {
 
         type: "POST",
 
-        url: apiURL + "",
+        url: apiURLBase + "",
 
         data: payload,
 
