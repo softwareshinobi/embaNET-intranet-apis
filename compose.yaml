@@ -22,7 +22,7 @@ services:
 
         ports:
 
-            - "10.28.1.1:8880:80"
+            - "10.28.1.1:8080:80"
 
 ##########################################
 ##
@@ -52,11 +52,11 @@ services:
 
             DB_HOST: 10.28.1.1
 
-            DB_NAME: huracan
+            DB_NAME: kanban_flow_api
 
-            DB_USER: huracan
+            DB_USER: kanban_flow_api
 
-            DB_PASS: huracan
+            DB_PASS: kanban_flow_api
 
 ##########################################
 ##
@@ -80,4 +80,4 @@ services:
 
         ports:
 
-            - "10.28.1.1:8889:80"
+            - "10.28.1.1:8081:80"

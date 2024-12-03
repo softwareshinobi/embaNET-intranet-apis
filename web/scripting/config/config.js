@@ -1,7 +1,5 @@
 
-apiURLBase="http://intranet.embanet.softwareshinobi.digital:8888"
-
-//apiURLBase="http://localhost:8888"
+apiURLBase="http://intranet.embanet.online:8888"
 
 function setProject(projectID, projectName) {
 
